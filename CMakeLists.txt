@@ -7,6 +7,6 @@ add_library(supl
         library.cpp library.h
         src/Input/Input.cpp src/Input/Input.h
         src/Input/Sample.cpp src/Input/Sample.h
-        )
+        deps/rapidcsv.h)
 
 add_executable(main src/main.cpp library.cpp)

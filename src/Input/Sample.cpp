@@ -4,3 +4,9 @@
 //@File: Implementation of Sample and its children
 
 #include "Sample.h"
+#include "../../deps/rapidcsv.h"
+
+namespace sample{
+
+
+}
