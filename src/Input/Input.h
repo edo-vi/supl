@@ -26,7 +26,9 @@ namespace input {
         LabeledInput(const std::array<T, d> &input, Q label) :
                 Input<T, d>(input),
                 _label(label) {}
-
+    constexpr Q getLabel() const {
+        return _label;
+        }
     protected:
         Q _label;
     };
