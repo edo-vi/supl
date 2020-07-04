@@ -1,8 +1,9 @@
 #include <iostream> //cout
 #include <cstdint>
 
-#include "Input/Sample.h" //Sample
 
+#include "Input/Sample.h" //Sample
+#include "Learner/Parameter.h"
 
 
 int main(int argc, char** argv) {
@@ -13,4 +14,11 @@ int main(int argc, char** argv) {
 
     std::vector<input::LabeledInstance<double, string>> arr = sa.randomPointsNoReplacement(5);
     sa.size();
+    std::array<int, 5> array{{3, 4, 0, -123, 4}};
+    parameter::ParameterSet<int, 5> pset{array};
+
+    for (auto e : pset._set) {
+        cout << e.value();
+        cout << "\n";
+    }
 }

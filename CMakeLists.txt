@@ -7,6 +7,8 @@ add_library(supl
         library.cpp library.h
         src/Input/Instance.cpp src/Input/Instance.h
         src/Input/Sample.cpp src/Input/Sample.h
+        src/Learner/Parameter.cpp src/Learner/Parameter.h
+        src/Cross-validation/CrossValidation.cpp src/Cross-validation/CrossValidation.h
         deps/rapidcsv.h)
 
 add_executable(main src/main.cpp library.cpp)

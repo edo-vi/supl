@@ -10,7 +10,6 @@ namespace input {
 
     template<typename T>
     class Instance {
-
     public:
         Instance() = default;
         explicit Instance(const std::vector<T>& input) : _arr(input) {}
@@ -19,10 +18,10 @@ namespace input {
                 _arr.push_back(input[i]);
             }
         }
-        T getFactor(int64_t index) const {
+        T factor(int64_t index) const {
             return _arr[index];
         }
-        int64_t getDimension() const {
+        int64_t dimensions() const {
             return _arr.size();
         }
 
@@ -32,7 +31,6 @@ namespace input {
 
     template<typename T, typename Q>
     class LabeledInstance : public Instance<T> {
-
     public:
         LabeledInstance() = default;
 
@@ -42,7 +40,7 @@ namespace input {
         LabeledInstance(T input[], int64_t size, Q label) :
                 Instance<T>(input, size),
                 _label(label){}
-        Q getLabel() const {
+        Q label() const {
             return _label;
             }
 
