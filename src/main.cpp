@@ -4,21 +4,17 @@
 
 #include "Input/Sample.h" //Sample
 #include "Learner/Parameter.h"
+#include "Cross-validation/CrossValidation.h"
 
 
 int main(int argc, char** argv) {
     using namespace std;
 
     std::string filename = "../data/iris/iris.csv";
-    auto sa = sample::sampleFromCsv<double, string>(filename);
+    sample::Sample<double, string> sa = sample::sampleFromCsv<double, string>(filename);
 
-    std::vector<input::LabeledInstance<double, string>> arr = sa.randomPointsNoReplacement(5);
-    sa.size();
-    std::array<int, 5> array{{3, 4, 0, -123, 4}};
-    parameter::ParameterSet<int, 5> pset{array};
+    std::array<double, 4> array{{3, 4, 0, -123}};
+    parameter::ParameterSet<double, 4> pset{array};
 
-    for (auto e : pset._set) {
-        cout << e.value();
-        cout << "\n";
-    }
+    crossvalidation::crossValidate<double, string, double, 4, 4>(learner::ConcreteLearner<double, string>{}, pset, sa);
 }
