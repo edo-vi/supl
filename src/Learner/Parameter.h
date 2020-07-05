@@ -20,6 +20,7 @@ namespace parameter {
     template<typename T>
     class Parameter {
     public:
+        Parameter() = default;
         explicit Parameter(const T& value) : _value(value) {}
         bool operator==(const Parameter<T>& other) const {
             return _value == other._value;
@@ -31,15 +32,25 @@ namespace parameter {
         T _value;
     };
 
-    template <typename T, int64_t n>
+    template <typename T>
     class ParameterSet {
     public:
-        explicit ParameterSet(const std::array<T, n>& array) {
+        explicit ParameterSet(const T array[], int64_t size) {
+            for (int64_t i = 0; i < size; i ++) {
+                _set.insert(Parameter(array[i]));
+            }
+        }
+        explicit ParameterSet(const Parameter<T> array[], int64_t size) {
+            for (int64_t i = 0; i < size; i ++) {
+                _set.insert(Parameter(array[i]));
+            }
+        }
+        explicit ParameterSet(const std::vector<T>& array) {
             for (auto elem : array) {
                 _set.insert(Parameter(elem));
             }
         }
-        explicit ParameterSet(const std::array<Parameter<T>, n>& array) {
+        explicit ParameterSet(const std::vector<Parameter<T>>& array) {
             for (auto elem : array) {
                 _set.insert(elem);
             }

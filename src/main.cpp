@@ -13,8 +13,8 @@ int main(int argc, char** argv) {
     std::string filename = "../data/iris/iris.csv";
     sample::Sample<double, string> sa = sample::sampleFromCsv<double, string>(filename);
 
-    std::array<double, 4> array{{3, 4, 0, -123}};
-    parameter::ParameterSet<double, 4> pset{array};
-
-    crossvalidation::crossValidate<double, string, double, 4, 4>(learner::ConcreteLearner<double, string>{}, pset, sa);
+    double array[] = {3, 4, 0, -123};
+    parameter::ParameterSet<double> pset{array, 4};
+    auto l = learner::ConcreteLearner<double, string>{};
+    crossvalidation::crossValidate<double, string, double, 4>(l, pset, sa);
 }

@@ -107,30 +107,37 @@ namespace sample {
         SlicedSettedSample() = default;
         explicit SlicedSettedSample(const Sample<T, Q>& sample, int s) :
                 SlicedSample<T, Q, k>{sample},
-                _s(s)
-        {assert(_s < k && _s >= 0);}
+                _s(s) {
+            assert(_s < k && _s >= 0);
+            _startidx = s * this->_num;
+            _endidx = s == k - 1 ? this->_sample.size()-1 : _startidx + this->_num - 1; //inclusive
+        }
 
-        std::pair<std::vector<LabeledInstance<T, Q>>, std::vector<LabeledInstance<T, Q>>> trainingAndValidation() {
+        sample::Sample<T, Q> trainingSet() {
             auto training = std::vector<input::LabeledInstance<T, Q>>();
-            auto validation = std::vector<input::LabeledInstance<T, Q>>();
-            auto start_point = _s * this->_num;
-            int64_t end_point = start_point + this->_num;
-            if (end_point >= this->_sample.size()) {
-                end_point = this->_sample.size()-1;
-            }
-
             for (int64_t i = 0; i < this->_sample.size(); i++) {
-                if (i >= start_point && i < end_point) {
-                    validation.push_back(this->_sample[i]);
-                } else {
+                if (i < _startidx || i > _endidx) {
                     training.push_back(this->_sample[i]);
                 };
             }
-            return std::pair<std::vector<LabeledInstance<T, Q>>, std::vector<LabeledInstance<T, Q>>>{training, validation};
+            return Sample<T, Q>(training);
+        };
+
+        sample::Sample<T, Q> validationSet() {
+            auto validation = std::vector<input::LabeledInstance<T, Q>>();
+
+            for (int64_t i = 0; i < this->_sample.size(); i++) {
+                if (i >= _startidx && i <= _endidx) {
+                    validation.push_back(this->_sample[i]);
+                }
+            }
+            return Sample<T, Q>(validation);
         };
 
     private:
         int _s{};
+        int64_t _startidx{};
+        int64_t _endidx{};
 
     };
 };

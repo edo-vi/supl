@@ -43,6 +43,9 @@ namespace input {
         Q label() const {
             return _label;
             }
+        Instance<T> instance() const {
+            return Instance<T>(_arr);
+        }
 
     protected:
         Q _label;
