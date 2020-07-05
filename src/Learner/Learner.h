@@ -4,6 +4,7 @@
 #pragma once
 
 #include "../Input/Sample.h"
+#include "Parameter.h"
 
 namespace learner {
     using namespace sample;
@@ -23,5 +24,6 @@ namespace learner {
         void train(const Sample<T, Q>& sample, Parameter<T> param) override {}
         double test(const Sample<T, Q>& sample) override {}
         virtual Parameter<T> parameter() const override {}
+        virtual Q predict(Instance<T> input) override {};
     };
 }

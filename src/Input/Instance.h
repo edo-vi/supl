@@ -44,7 +44,7 @@ namespace input {
             return _label;
             }
         Instance<T> instance() const {
-            return Instance<T>(_arr);
+            return Instance<T>(this->_arr);
         }
 
     protected:
