@@ -24,7 +24,8 @@ namespace crossvalidation {
                 learner.train(training, s);
                 avgerror += learner.test(validation);
             }
-            if (avgerror/double{k} < min) {
+            avgerror /= k;
+            if (avgerror < min) {
                 min = avgerror;
                 p = s;
             }
