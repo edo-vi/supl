@@ -9,10 +9,16 @@
 
 #include <random> //rand, srand
 #include <vector>
+#include <valarray>
 
+#include <algorithm>
+#include <random>
 
 namespace sample {
     using namespace input;
+
+    template <typename T, typename Q>
+    struct ValidationSample;
 
     template<typename T, typename Q>
     class Sample {
@@ -24,7 +30,8 @@ namespace sample {
                 {}
         int64_t size() const {
             return int64_t{_arr.size()};
-        };/*
+        };
+        /*
         LabeledInstance<T, Q> randomPoint() {
             std::uniform_int_distribution<unsigned long> distr(0, _arr.size());
             return _arr[distr(_gen)];
@@ -40,7 +47,8 @@ namespace sample {
             std::vector<LabeledInstance<T, Q>> v{};
             std::sample(_arr.begin(), _arr.end(), std::back_inserter(v), n, _gen);
             return v;
-        };*/
+        };
+        */
         LabeledInstance<T, Q> operator[](int64_t index) const {
             return _arr[index];
         }
@@ -49,6 +57,19 @@ namespace sample {
         }
         LabeledInstance<T, Q> end() {
             return _arr.end();
+        }
+        ValidationSample<T, Q> split(int64_t k) {
+            assert (k < size());
+
+            auto vs = ValidationSample<T, Q>();
+            vs.test = Sample<T, Q>(std::vector<LabeledInstance<T, Q>>(_arr.begin(), _arr.begin() + k));
+            vs.training = Sample<T, Q>(std::vector<LabeledInstance<T, Q>>(_arr.begin() + k, _arr.begin() + _arr.size() - 1));
+            return vs;
+        };
+        void shuffle() {
+            std::random_device rdev{};
+            std::mt19937 gen{rdev()};
+            std::shuffle(_arr.begin(), _arr.end(), gen);
         }
     protected:
         std::vector<LabeledInstance<T, Q>> _arr;
@@ -139,5 +160,11 @@ namespace sample {
         int64_t _startidx{};
         int64_t _endidx{};
 
+    };
+
+    template <typename T, typename Q>
+    struct ValidationSample {
+        Sample<T, Q> training;
+        Sample<T, Q> test;
     };
 };

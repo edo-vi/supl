@@ -15,6 +15,7 @@ namespace knearest {
     template <typename T, typename Q>
     class KNearestNeighbors : public Learner<T, Q, int> {
     public:
+        KNearestNeighbors() = default;
         explicit KNearestNeighbors(int k) : _k(Parameter<int>(k)) {
             static_assert(std::is_arithmetic<T>());
         };
@@ -25,6 +26,7 @@ namespace knearest {
             this->_k = param;
         }
         void train(const Sample<T, Q> &sample) override {
+            assert(this->_k.value());
             train(sample, this->_k);
         }
 
@@ -79,7 +81,7 @@ namespace knearest {
             return std::unique_ptr<loss::LossFunction<T, Q>>(new loss::ZeroOneLoss<T, Q>);
         }
     private:
-        Parameter<int> _k{};
+        Parameter<int> _k;
         Sample<T, Q> _sample{};
     };
 }

@@ -25,7 +25,7 @@ namespace learner {
             for (int64_t i = 0; i < sample.size(); i++) {
                 v += l->loss(sample[i].instance(), sample[i].label(), predict(sample[i]));
             }
-            return v;
+            return v/sample.size();
 
         };
         virtual Parameter<P> hyperparameter() const = 0;
