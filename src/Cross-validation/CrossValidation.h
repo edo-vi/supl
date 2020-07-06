@@ -12,9 +12,9 @@ namespace crossvalidation {
     using namespace learner;
 
     template<typename T, typename Q, typename P, int k>
-    Parameter<T> crossValidate(Learner<T, Q>& learner, const ParameterSet<P>& paramset, const Sample<T, Q>& sample) {
+    Parameter<P> crossValidate(Learner<T, Q, P>& learner, const ParameterSet<P>& paramset, const Sample<T, Q>& sample) {
         double min{+INFINITY};
-        Parameter<T> p{};
+        Parameter<P> p{};
         for (auto s : paramset.values()) {
             double avgerror{0};
             for (int i = 0; i < k; i++) {

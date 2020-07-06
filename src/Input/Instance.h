@@ -5,6 +5,9 @@
 #pragma once
 
 #include <vector> //vector
+#include <cassert> //assert
+#include <type_traits> //is_arithmetic
+#include <cmath> //sqrt
 
 namespace input {
 
@@ -23,6 +26,17 @@ namespace input {
         }
         int64_t dimensions() const {
             return _arr.size();
+        }
+
+        double euclidean (const Instance<T>& other) {
+            static_assert(std::is_arithmetic<T>());
+            assert(other.dimensions() == dimensions());
+            double eu{0};
+            for (int i{}; i < other.dimensions(); i++) {
+                eu += pow(other.factor(i) - factor(i), 2);
+            }
+            return sqrt(eu);
+
         }
 
     protected:

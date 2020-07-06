@@ -14,6 +14,7 @@ namespace loss {
     public:
         LossFunction() = default;
         virtual ~LossFunction() = 0;
+        [[nodiscard]]
         virtual double loss(const Instance<T>& x, const Q& y, const Q& hx) = 0;
         virtual double loss(const LabeledInstance<T, Q>& xy, const Q& hx) {
             loss(xy.instance(), xy.label(), hx);
@@ -22,12 +23,11 @@ namespace loss {
 
 
     template <typename T, typename Q>
-    LossFunction<T, Q>::~LossFunction() {}
+    LossFunction<T, Q>::~LossFunction() = default;
 
     template<typename T, typename Q>
     class ZeroOneLoss : public LossFunction<T, Q> {
     public:
-        [[nodiscard]]
         double loss (const Instance<T>& x, const Q& y, const Q& hx) override {
             return (y == hx) ? 0 : 1;
         };
@@ -38,6 +38,7 @@ namespace loss {
     class SquaredLoss : public LossFunction<T, Q> {
     public:
         double loss(const Instance<T>& x, const Q& y, const Q& hx) override {
+            static_assert(std::is_arithmetic<Q>());
             return pow((y - hx), 2);
         };
         ~SquaredLoss() override  = default;

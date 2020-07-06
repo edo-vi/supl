@@ -19,12 +19,12 @@ namespace sample {
     public:
         Sample() = default;
         explicit Sample(const std::vector<LabeledInstance<T, Q>>& s) : _arr(s) {}
-        explicit Sample(const Sample<T, Q>& sample) :
+        Sample(const Sample<T, Q>& sample) :
                 _arr(sample._arr)
                 {}
         int64_t size() const {
             return int64_t{_arr.size()};
-        };
+        };/*
         LabeledInstance<T, Q> randomPoint() {
             std::uniform_int_distribution<unsigned long> distr(0, _arr.size());
             return _arr[distr(_gen)];
@@ -40,7 +40,7 @@ namespace sample {
             std::vector<LabeledInstance<T, Q>> v{};
             std::sample(_arr.begin(), _arr.end(), std::back_inserter(v), n, _gen);
             return v;
-        };
+        };*/
         LabeledInstance<T, Q> operator[](int64_t index) const {
             return _arr[index];
         }
@@ -54,8 +54,8 @@ namespace sample {
         std::vector<LabeledInstance<T, Q>> _arr;
 
     private:
-        std::random_device _rdev{};
-        std::mt19937 _gen{_rdev()};
+        //std::random_device _rdev{};
+        //std::mt19937 _gen{_rdev()};
     };
 
     template <typename T, typename Q>
