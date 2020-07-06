@@ -3,3 +3,7 @@
 //
 
 #include "Learner.h"
+
+namespace learner {
+
+}

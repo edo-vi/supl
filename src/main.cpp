@@ -21,5 +21,7 @@ int main(int argc, char** argv) {
     Parameter<int> s = crossvalidation::crossValidate<double, string, int, 4>(le, pset, sets.training);
 
     cout << "Parameter chosen: " + to_string(s.value()) + "\n";
-    cout << "Error on test set (30): " + to_string(le.test(sets.test));
+    le = knearest::KNearestNeighbors<double, string>(s.value());
+    le.train(sets.training);
+    cout << "Error on test set (30): " + to_string(le.test(sets.test, true));
 }
