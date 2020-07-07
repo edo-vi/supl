@@ -29,37 +29,39 @@ namespace learner {
             }
             return v/sample.size();
         };
-        double test(const Sample<T, Q>& sample, bool verbose) const;
+
+        double test(const Sample<T, Q>& sample, bool verbose) const {
+            if (!verbose) return test(sample);
+            auto l = lossFunction();
+            double v{};
+            std::cout << "label\tprediction\n";
+            for (int64_t i = 0; i < sample.size(); i++) {
+                auto samplepoint = sample[i];
+                auto instance = samplepoint.instance();
+                auto label = samplepoint.label();
+                auto prediction = predict(samplepoint);
+                v += l->loss(instance, label, prediction);
+                std::string final = "";
+                if constexpr(std::is_same<Q, std::string>::value) {
+                    final += label + "\t" + prediction;
+                    if (label == prediction) final += "\n";
+                    else final +=  " <- ERROR\n";
+                }
+                else {
+                    final += std::to_string(label) + "\t" + std::to_string(prediction);
+                    if (label == prediction) final += "\n";
+                    else final +=  " <- ERROR\n";
+                }
+                std::cout << final;
+            }
+            return v / sample.size();
+        };
 
         virtual Parameter<P> hyperparameter() const = 0;
         virtual Q predict(Instance<T> input) const = 0;
         virtual std::unique_ptr<loss::LossFunction<T, Q>> lossFunction() const = 0;
     };
 
-    template<typename T, typename Q, typename P>
-    double Learner<T, Q, P>::test(const Sample<T, Q>& sample, bool verbose) const {
-        if (!verbose) return test(sample);
-        auto l = lossFunction();
-        double v{};
-        std::cout << "Instance\tlabel\tprediction\n";
-        for (int64_t i = 0; i < sample.size(); i++) {
-            auto samplepoint = sample[i];
-            auto instance = samplepoint.instance();
-            auto label = samplepoint.label();
-            auto prediction = predict(samplepoint);
-            v += l->loss(instance, label, prediction);
-            std::string b = "(" + std::to_string(instance.factor(0));
-            for (int64_t j = 1; j < instance.dimensions(); j++) {
-                b += ", " + std::to_string(instance.factor(j));
-            }
-            b += ")";
-            if (label == prediction) std::cout << b + "\t" + label + "\t" + prediction + "\n";
-            else std::cout << b + "\t" + label + "\t" + prediction + " <- ERROR\n";
-
-        }
-        return v/sample.size();
-
-    };
 
     template <typename T, typename Q, typename P>
     Learner<T, Q, P>::~Learner() = default;
