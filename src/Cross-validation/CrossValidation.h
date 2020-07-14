@@ -1,11 +1,12 @@
-//
-// Created by edoardo on 04/07/20.
-//
+//@author: ***REMOVED***
+//@Date: July 2020
+//@Version: 0.1
+//@File: Definition and implementation of the function crossValidate
 #pragma once
 
-#include "../Learner/Parameter.h"
-#include "../Learner/Learner.h"
-#include "../Input/Sample.h"
+#include "../Learner/Parameter.h" //Parameter, ParameterSet
+#include "../Learner/Learner.h"   //Learner
+#include "../Input/Sample.h"      //Sample, SlicedSettedSample
 
 namespace crossvalidation {
     using namespace parameter;
@@ -18,7 +19,7 @@ namespace crossvalidation {
         for (auto s : paramset.values()) {
             double avgerror{0};
             for (int i = 0; i < k; i++) {
-                auto setted = SlicedSample<T, Q, k>(sample).set(i);
+                SlicedSettedSample<T, Q, k> setted = SlicedSample<T, Q, k>(sample).set(i);
                 const auto training = setted.trainingSet();
                 const auto validation = setted.validationSet();
                 learner.train(training, s);

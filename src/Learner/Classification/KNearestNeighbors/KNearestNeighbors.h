@@ -1,12 +1,18 @@
-//
-// Created by edoardo on 06/07/20.
-//
+//@author: ***REMOVED***
+//@Date: July 2020
+//@Version: 0.1
+//@File: Definition and implementation of the K Nearest Neighbors learner, concrete implementation of Learner
 #pragma once
 
-#include <queue> //priority_queue
-#include <type_traits>
+#include "../../Learner.h"              //Learner
+#include "../../../Loss/LossFunction.h" //LossFunction
+#include "../../../Input/Sample.h"      //Sample
+#include "../../../Input/Instance.h"    //Parameter
 
-#include "../../Learner.h"
+#include <queue>       //priority_queue
+#include <type_traits> //is_arithmetic
+#include <cassert>     //assert
+
 
 namespace knearest {
     using namespace learner;

@@ -1,12 +1,6 @@
-#include <iostream> //cout
-#include <cstdint>
+#include "../library.h" //Sample
 
-
-#include "Input/Sample.h" //Sample
-#include "Learner/Parameter.h"
-#include "Cross-validation/CrossValidation.h"
-#include "Learner/Classification/KNearestNeighbors/KNearestNeighbors.h"
-
+#include <iostream>     //cout
 
 int main(int argc, char** argv) {
     using namespace std;

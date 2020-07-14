@@ -1,0 +1,4 @@
+/home/edoardo/cl/supl/build/CMakeFiles/rebuild_cache.dir
+/home/edoardo/cl/supl/build/CMakeFiles/supl.dir
+/home/edoardo/cl/supl/build/CMakeFiles/edit_cache.dir
+/home/edoardo/cl/supl/build/CMakeFiles/main.dir

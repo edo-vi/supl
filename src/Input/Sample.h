@@ -1,18 +1,18 @@
 //@author: ***REMOVED***
-//@Date: June 2020
+//@Date: July 2020
 //@Version: 0.1
-//@File: Definition of the Sample class and its children
+//@File: Definition and implementation of Sample, ValidationSample, SlicedSample and SlicedSettedSample; it also contains
+//       the implementation of the function sampleFromCsv.
 #pragma once
 
 #include "Instance.h" // LabeledInstance
 #include "../../deps/rapidcsv.h" //Document, labelParams, GetRowCount, GetColumnCount, GetCell
 
-#include <random> //rand, srand
-#include <vector>
-#include <valarray>
-
-#include <algorithm>
-#include <random>
+#include <random> //random_device, mt19337
+#include <cstdint> //int64_t
+#include <vector> //vector
+#include <cassert> //assert
+#include <algorithm> //shuffle
 
 namespace sample {
     using namespace input;

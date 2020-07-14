@@ -1,14 +1,15 @@
-//
-// Created by edoardo on 04/07/20.
-//
+//@author: ***REMOVED***
+//@Date: July 2020
+//@Version: 0.1
+//@File: Definition and implementation of the interface Learner
 #pragma once
 
-#include "../Input/Sample.h"
-#include "Parameter.h"
-#include "../Loss/LossFunction.h"
+#include "../Input/Sample.h"        //Sample
+#include "Parameter.h"              //Parameter
+#include "Loss/LossFunction.h"      //lossFunction
 
 #include <memory> //unique_ptr
-#include <type_traits>
+
 
 namespace learner {
     using namespace sample;
@@ -44,14 +45,12 @@ namespace learner {
                 std::string final = "";
                 if constexpr(std::is_same<Q, std::string>::value) {
                     final += label + "\t" + prediction;
-                    if (label == prediction) final += "\n";
-                    else final +=  " <- ERROR\n";
                 }
                 else {
                     final += std::to_string(label) + "\t" + std::to_string(prediction);
-                    if (label == prediction) final += "\n";
-                    else final +=  " <- ERROR\n";
                 }
+                if (label == prediction) final += "\n";
+                else final +=  " <- ERROR\n";
                 std::cout << final;
             }
             return v / sample.size();
@@ -66,19 +65,4 @@ namespace learner {
     template <typename T, typename Q, typename P>
     Learner<T, Q, P>::~Learner() = default;
 
-    template <typename T, typename Q, typename P>
-    class ConcreteLearner : public Learner<T, Q, P> {
-    public:
-        ~ConcreteLearner<T, Q, P>() override = default;
-        void train(const Sample<T, Q>& sample, Parameter<P> param) override {}
-        void train(const Sample<T, Q>& sample) override {};
-        [[nodiscard]]
-        Parameter<P> hyperparameter() const override {}
-        Q predict(Instance<T> input) const override {
-            return "ciao";
-        };
-        std::unique_ptr<loss::LossFunction<T, Q>> lossFunction() const {
-            return std::unique_ptr<loss::LossFunction<T, Q>>(new loss::ZeroOneLoss<T, Q>);
-        }
-    };
 }
