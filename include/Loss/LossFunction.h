@@ -4,10 +4,10 @@
 //@File: Definition and implementation of the LossFunction interface and concrete implementations
 #pragma once
 
-#include "../Input/Instance.h" //Instance, LabeledInstance
+#include "Input/Instance.h" //Instance, LabeledInstance
 
-#include <cmath>       //pow
-#include <type_traits> //is_arithmetic
+#include <cmath>            //pow
+#include <type_traits>      //is_arithmetic
 
 namespace loss {
     using namespace input;
@@ -18,11 +18,11 @@ namespace loss {
         virtual ~LossFunction() = 0;
         [[nodiscard]]
         virtual double loss(const Instance<T>& x, const Q& y, const Q& hx) = 0;
+        [[nodiscard]]
         virtual double loss(const LabeledInstance<T, Q>& xy, const Q& hx) {
             loss(xy.instance(), xy.label(), hx);
         };
     };
-
 
     template <typename T, typename Q>
     LossFunction<T, Q>::~LossFunction() = default;

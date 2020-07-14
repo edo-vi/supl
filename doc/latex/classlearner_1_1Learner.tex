@@ -1,0 +1,31 @@
+\hypertarget{classlearner_1_1Learner}{}\doxysection{learner\+::Learner$<$ T, Q, P $>$ Class Template Reference}
+\label{classlearner_1_1Learner}\index{learner::Learner$<$ T, Q, P $>$@{learner::Learner$<$ T, Q, P $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classlearner_1_1Learner_a1fb5c1c2f10cc9ce149f576b57c88bea}\label{classlearner_1_1Learner_a1fb5c1c2f10cc9ce149f576b57c88bea}} 
+virtual void {\bfseries train} (const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&sample, \mbox{\hyperlink{classparameter_1_1Parameter}{Parameter}}$<$ P $>$ param)=0
+\item 
+\mbox{\Hypertarget{classlearner_1_1Learner_a6f88d4622830272103463b86cf92dfad}\label{classlearner_1_1Learner_a6f88d4622830272103463b86cf92dfad}} 
+virtual void {\bfseries train} (const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&sample)=0
+\item 
+\mbox{\Hypertarget{classlearner_1_1Learner_acb213e5bab236eb1193ef7a88ecc8fd0}\label{classlearner_1_1Learner_acb213e5bab236eb1193ef7a88ecc8fd0}} 
+double {\bfseries test} (const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&sample) const
+\item 
+\mbox{\Hypertarget{classlearner_1_1Learner_a120c493a55f648ab72adadb2ae05d43e}\label{classlearner_1_1Learner_a120c493a55f648ab72adadb2ae05d43e}} 
+double {\bfseries test} (const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&sample, bool verbose) const
+\item 
+\mbox{\Hypertarget{classlearner_1_1Learner_ae80fb425a705f19a94113d742232423e}\label{classlearner_1_1Learner_ae80fb425a705f19a94113d742232423e}} 
+virtual \mbox{\hyperlink{classparameter_1_1Parameter}{Parameter}}$<$ P $>$ {\bfseries hyperparameter} () const =0
+\item 
+\mbox{\Hypertarget{classlearner_1_1Learner_af191c0bd6e348a5fbed2bb615bf810ae}\label{classlearner_1_1Learner_af191c0bd6e348a5fbed2bb615bf810ae}} 
+virtual Q {\bfseries predict} (\mbox{\hyperlink{classinput_1_1Instance}{Instance}}$<$ T $>$ input) const =0
+\item 
+\mbox{\Hypertarget{classlearner_1_1Learner_a70e3e8dd5748dab930f05309d7afcf54}\label{classlearner_1_1Learner_a70e3e8dd5748dab930f05309d7afcf54}} 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classloss_1_1LossFunction}{loss\+::\+Loss\+Function}}$<$ T, Q $>$ $>$ {\bfseries loss\+Function} () const =0
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/edoardo/cl/supl/include/\+Learner/Learner.\+h\end{DoxyCompactItemize}

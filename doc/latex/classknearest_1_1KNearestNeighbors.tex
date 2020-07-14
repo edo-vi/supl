@@ -1,0 +1,66 @@
+\hypertarget{classknearest_1_1KNearestNeighbors}{}\doxysection{knearest\+::K\+Nearest\+Neighbors$<$ T, Q $>$ Class Template Reference}
+\label{classknearest_1_1KNearestNeighbors}\index{knearest::KNearestNeighbors$<$ T, Q $>$@{knearest::KNearestNeighbors$<$ T, Q $>$}}
+
+
+A test class.  
+
+
+
+
+{\ttfamily \#include $<$K\+Nearest\+Neighbors.\+h$>$}
+
+Inheritance diagram for knearest\+::K\+Nearest\+Neighbors$<$ T, Q $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classknearest_1_1KNearestNeighbors}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classknearest_1_1KNearestNeighbors_a21041c378ec8700cedc09ec751122b05}\label{classknearest_1_1KNearestNeighbors_a21041c378ec8700cedc09ec751122b05}} 
+{\bfseries K\+Nearest\+Neighbors} (int k)
+\item 
+\mbox{\Hypertarget{classknearest_1_1KNearestNeighbors_a0fec989ad421fc90587af71946450171}\label{classknearest_1_1KNearestNeighbors_a0fec989ad421fc90587af71946450171}} 
+void {\bfseries train} (const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&sample, \mbox{\hyperlink{classparameter_1_1Parameter}{Parameter}}$<$ int $>$ param) override
+\item 
+\mbox{\Hypertarget{classknearest_1_1KNearestNeighbors_aec1203106ca683bd3f8df82c7b1e01f2}\label{classknearest_1_1KNearestNeighbors_aec1203106ca683bd3f8df82c7b1e01f2}} 
+void {\bfseries train} (const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&sample) override
+\item 
+\mbox{\Hypertarget{classknearest_1_1KNearestNeighbors_aac0acac61d956207a46ebfb17e7080df}\label{classknearest_1_1KNearestNeighbors_aac0acac61d956207a46ebfb17e7080df}} 
+\mbox{\hyperlink{classparameter_1_1Parameter}{Parameter}}$<$ int $>$ {\bfseries hyperparameter} () const override
+\item 
+Q \mbox{\hyperlink{classknearest_1_1KNearestNeighbors_ad19fab8006ec6fa1548f439b8a0d9029}{predict}} (\mbox{\hyperlink{classinput_1_1Instance}{Instance}}$<$ T $>$ input) const override
+\item 
+\mbox{\Hypertarget{classknearest_1_1KNearestNeighbors_a1504f95de92d83f02e1caf7b9e0e5422}\label{classknearest_1_1KNearestNeighbors_a1504f95de92d83f02e1caf7b9e0e5422}} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classloss_1_1LossFunction}{loss\+::\+Loss\+Function}}$<$ T, Q $>$ $>$ {\bfseries loss\+Function} () const override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename Q$>$\newline
+class knearest\+::\+K\+Nearest\+Neighbors$<$ T, Q $>$}
+
+A test class. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classknearest_1_1KNearestNeighbors_ad19fab8006ec6fa1548f439b8a0d9029}\label{classknearest_1_1KNearestNeighbors_ad19fab8006ec6fa1548f439b8a0d9029}} 
+\index{knearest::KNearestNeighbors$<$ T, Q $>$@{knearest::KNearestNeighbors$<$ T, Q $>$}!predict@{predict}}
+\index{predict@{predict}!knearest::KNearestNeighbors$<$ T, Q $>$@{knearest::KNearestNeighbors$<$ T, Q $>$}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily template$<$typename T , typename Q $>$ \\
+Q \mbox{\hyperlink{classknearest_1_1KNearestNeighbors}{knearest\+::\+K\+Nearest\+Neighbors}}$<$ T, Q $>$\+::predict (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classinput_1_1Instance}{Instance}}$<$ T $>$}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & An instance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The label predicted for the passed instance 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/edoardo/cl/supl/include/\+Learner/\+Classification/\+K\+Nearest\+Neighbors/\mbox{\hyperlink{KNearestNeighbors_8h}{K\+Nearest\+Neighbors.\+h}}\end{DoxyCompactItemize}

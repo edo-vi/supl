@@ -1,4 +1,12 @@
-#include "../library.h" //Sample
+/**
+@file main.cpp
+@Author: ***REMOVED***
+@Date: July 2020
+@Version: 0.1
+@File: Definition and implementation of the interface Learner
+*/
+
+#include "library.h" //Sample
 
 #include <iostream>     //cout
 
