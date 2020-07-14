@@ -1,2 +1,0 @@
-/usr/bin/ar qc libsupl.a  CMakeFiles/supl.dir/library.cpp.o CMakeFiles/supl.dir/src/Cross-validation/CrossValidation.cpp.o
-/usr/bin/ranlib libsupl.a
