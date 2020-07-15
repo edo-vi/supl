@@ -80,14 +80,14 @@ $(function() {
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../Input/Sample.h&quot;</span>      <span class="comment">//Sample, SlicedSettedSample</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>crossvalidation {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">using namespace </span>parameter;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">using namespace </span><a class="code" href="namespaceparameter.html">parameter</a>;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">using namespace </span>learner;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Q, <span class="keyword">typename</span> P, <span class="keywordtype">int</span> k&gt;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classparameter_1_1Parameter.html">Parameter&lt;P&gt;</a> crossValidate(<a class="code" href="classlearner_1_1Learner.html">Learner&lt;T, Q, P&gt;</a>&amp; learner, <span class="keyword">const</span> <a class="code" href="classparameter_1_1ParameterSet.html">ParameterSet&lt;P&gt;</a>&amp; paramset, <span class="keyword">const</span> Sample&lt;T, Q&gt;&amp; sample) {</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">double</span> min{+INFINITY};</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="classparameter_1_1Parameter.html">Parameter&lt;P&gt;</a> p{};</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> s : paramset.values()) {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> s : paramset.<a class="code" href="classparameter_1_1ParameterSet.html#a3ea55c21c10a958221e21d2714f14012">values</a>()) {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordtype">double</span> avgerror{0};</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; k; i++) {</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                SlicedSettedSample&lt;T, Q, k&gt; setted = SlicedSample&lt;T, Q, k&gt;(sample).set(i);</div>
@@ -106,9 +106,11 @@ $(function() {
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    };</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassparameter_1_1Parameter_html"><div class="ttname"><a href="classparameter_1_1Parameter.html">parameter::Parameter</a></div><div class="ttdef"><b>Definition:</b> Parameter.h:24</div></div>
-<div class="ttc" id="aclassparameter_1_1ParameterSet_html"><div class="ttname"><a href="classparameter_1_1ParameterSet.html">parameter::ParameterSet</a></div><div class="ttdef"><b>Definition:</b> Parameter.h:39</div></div>
-<div class="ttc" id="aclasslearner_1_1Learner_html"><div class="ttname"><a href="classlearner_1_1Learner.html">learner::Learner</a></div><div class="ttdef"><b>Definition:</b> Learner.h:20</div></div>
+<div class="ttc" id="aclassparameter_1_1Parameter_html"><div class="ttname"><a href="classparameter_1_1Parameter.html">parameter::Parameter</a></div><div class="ttdoc">A (hyper)parameter, i.e. a parameter that is passed to a learner and that influences its training and...</div><div class="ttdef"><b>Definition:</b> Parameter.h:25</div></div>
+<div class="ttc" id="aclassparameter_1_1ParameterSet_html_a3ea55c21c10a958221e21d2714f14012"><div class="ttname"><a href="classparameter_1_1ParameterSet.html#a3ea55c21c10a958221e21d2714f14012">parameter::ParameterSet::values</a></div><div class="ttdeci">std::unordered_set&lt; Parameter&lt; T &gt; &gt; values() const noexcept</div><div class="ttdoc">Can be use to iterate over the Parameters ‘wrapped’ by the set.</div><div class="ttdef"><b>Definition:</b> Parameter.h:76</div></div>
+<div class="ttc" id="anamespaceparameter_html"><div class="ttname"><a href="namespaceparameter.html">parameter</a></div><div class="ttdef"><b>Definition:</b> Parameter.h:14</div></div>
+<div class="ttc" id="aclassparameter_1_1ParameterSet_html"><div class="ttname"><a href="classparameter_1_1ParameterSet.html">parameter::ParameterSet</a></div><div class="ttdoc">A fixed set of parameters, to be used for iterating on a subset of a certain parameter space.</div><div class="ttdef"><b>Definition:</b> Parameter.h:42</div></div>
+<div class="ttc" id="aclasslearner_1_1Learner_html"><div class="ttname"><a href="classlearner_1_1Learner.html">learner::Learner</a></div><div class="ttdef"><b>Definition:</b> Learner.h:21</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

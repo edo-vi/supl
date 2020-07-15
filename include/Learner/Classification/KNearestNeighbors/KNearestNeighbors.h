@@ -1,4 +1,4 @@
-/// \file KNearestNeighbors.h
+///@file KNearestNeighbors.h
 ///@author: ***REMOVED***
 ///@Date: July 2020
 ///@Version: 0.1
@@ -19,38 +19,44 @@
 #include <cstdint>     //int64_t
 #include <memory>      //unique_ptr
 
-//! Namespace containing the K nearest neighbor algorithm
+/// Namespace containing the K nearest neighbor algorithm
 namespace knearest {
     using namespace learner;
     using namespace std;
 
-    ///  A test class.
+    ///  K-Nearest Neighbors algorithm implementation
     template <typename T, typename Q>
     class KNearestNeighbors : public Learner<T, Q, int> {
     public:
         KNearestNeighbors() = default;
+        ///@param k The hyperparameter that fixes the number of instances (based on distances) consulted to predict the
+        ///class of an input instance
         explicit KNearestNeighbors(int k) : _k(Parameter<int>(k)) {
             static_assert(std::is_arithmetic<T>());
         };
         ~KNearestNeighbors() override = default;
-
+        ///@param sample A sample of LabeledInstances whose datapoints are of type T and their label of type Q
+        ///@param param Integer encoding *k*, which is the number of instances (the closest ones) whose labels are
+        ///used to classify an input instance
+        ///@brief Simply sets up the class' instance, no calculations are done at this stage
         void train(const Sample<T, Q> &sample, Parameter<int> param) override {
             this->_sample = sample; //copy the sample
             this->_k = param;
         }
+        ///@param sample A sample of LabeledInstances whose datapoints are of type T and their label of type Q
+        ///@brief The same as calling the other *train* method with the same sample and the previously passed
+        ///parameter *k* (in the constructor)
         void train(const Sample<T, Q> &sample) override {
             assert(this->_k.value());
             train(sample, this->_k);
         }
-
+        ///@return The parameter *k*, the number of instances who votes for the prediciton
+        ///@brief Simply returns the parameter *k*
         Parameter<int> hyperparameter() const override {
             return this->_k;
         }
-
-        /*!
-         @param input An instance
-         @return The label predicted for the passed instance
-        */
+        ///@param input An instance of type T (vector of elements of type T)
+        ///@return The label predicted for the passed instance
         Q predict(Instance<T> input) const override {
             using pair_dq = pair<double, Q>;
 
@@ -97,7 +103,8 @@ namespace knearest {
             }
             return lab;
         }
-
+        ///@return Unique_ptr to the loss function used for the purpose of multiclass classification for this algorithm
+        /// (0-1 loss)
         std::unique_ptr<loss::LossFunction<T, Q>> lossFunction() const override {
             return std::unique_ptr<loss::LossFunction<T, Q>>(new loss::ZeroOneLoss<T, Q>);
         }

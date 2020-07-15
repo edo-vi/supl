@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['predict_43',['predict',['../classknearest_1_1KNearestNeighbors.html#ad19fab8006ec6fa1548f439b8a0d9029',1,'knearest::KNearestNeighbors']]]
+  ['hyperparameter_53',['hyperparameter',['../classknearest_1_1KNearestNeighbors.html#aac0acac61d956207a46ebfb17e7080df',1,'knearest::KNearestNeighbors']]]
 ];

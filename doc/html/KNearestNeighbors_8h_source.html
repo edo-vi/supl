@@ -72,8 +72,8 @@ $(function() {
 <a href="KNearestNeighbors_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;Learner/Learner.h&quot;</span>   <span class="comment">//Learner</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;Loss/LossFunction.h&quot;</span> <span class="comment">//LossFunction, ZeroOneLoss</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Learner_8h.html">Learner/Learner.h</a>&quot;</span>   <span class="comment">//Learner</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="LossFunction_8h.html">Loss/LossFunction.h</a>&quot;</span> <span class="comment">//LossFunction, ZeroOneLoss</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;Input/Sample.h&quot;</span>      <span class="comment">//Sample</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;Input/Instance.h&quot;</span>    <span class="comment">//Instance</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Parameter_8h.html">Learner/Parameter.h</a>&quot;</span> <span class="comment">//Parameter</span></div>
@@ -93,89 +93,92 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classknearest_1_1KNearestNeighbors.html">   29</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classknearest_1_1KNearestNeighbors.html">KNearestNeighbors</a> : <span class="keyword">public</span> <a class="code" href="classlearner_1_1Learner.html">Learner</a>&lt;T, Q, int&gt; {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="classknearest_1_1KNearestNeighbors.html">KNearestNeighbors</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classknearest_1_1KNearestNeighbors.html">KNearestNeighbors</a>(<span class="keywordtype">int</span> k) : _k(<a class="code" href="classparameter_1_1Parameter.html">Parameter&lt;int&gt;</a>(k)) {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            static_assert(std::is_arithmetic&lt;T&gt;());</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        };</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        ~<a class="code" href="classknearest_1_1KNearestNeighbors.html">KNearestNeighbors</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">void</span> train(<span class="keyword">const</span> <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a> &amp;sample, <a class="code" href="classparameter_1_1Parameter.html">Parameter&lt;int&gt;</a> param)<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            this-&gt;_sample = sample; <span class="comment">//copy the sample</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            this-&gt;_k = param;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">void</span> train(<span class="keyword">const</span> <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a> &amp;sample)<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            assert(this-&gt;_k.value());</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            train(sample, this-&gt;_k);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="classparameter_1_1Parameter.html">Parameter&lt;int&gt;</a> hyperparameter()<span class="keyword"> const override </span>{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">return</span> this-&gt;_k;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classknearest_1_1KNearestNeighbors.html#ad19fab8006ec6fa1548f439b8a0d9029">   54</a></span>&#160;        Q <a class="code" href="classknearest_1_1KNearestNeighbors.html#ad19fab8006ec6fa1548f439b8a0d9029">predict</a>(<a class="code" href="classinput_1_1Instance.html">Instance&lt;T&gt;</a> input)<span class="keyword"> const override </span>{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keyword">using</span> pair_dq = pair&lt;double, Q&gt;;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="comment">//not a great problem the comparison between floats here, because</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="comment">//even if there are rounding errors that influence the result</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="comment">//they are basically the same, so it doesn&#39;t matter a lot which one is included</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keyword">auto</span> compare = [](pair_dq lhs, pair_dq rhs) -&gt; <span class="keywordtype">bool</span> {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">return</span> lhs.first &lt; rhs.first;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            };</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            std::priority_queue&lt;pair_dq, std::vector&lt;pair_dq&gt;, decltype(compare)&gt; pq(compare);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">for</span> (int64_t i = 0; i &lt; this-&gt;_sample.size(); i++) {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">if</span> (i &lt; this-&gt;_k.value()) pq.push(pair_dq(input.euclidean(this-&gt;_sample[i]), this-&gt;_sample[i].label()));</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                    <span class="keyword">auto</span> d = input.euclidean(this-&gt;_sample[i]);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    <span class="keywordflow">if</span> (d &lt; pq.top().first) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                        pq.pop();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        pq.push(pair_dq(d, this-&gt;_sample[i].label()));</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            std::vector&lt;Q&gt; arr{};</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">while</span> (!pq.empty()) {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                arr.push_back(pq.top().second);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                pq.pop();</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classknearest_1_1KNearestNeighbors.html#a21041c378ec8700cedc09ec751122b05">   34</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classknearest_1_1KNearestNeighbors.html#a21041c378ec8700cedc09ec751122b05">KNearestNeighbors</a>(<span class="keywordtype">int</span> k) : _k(<a class="code" href="classparameter_1_1Parameter.html">Parameter</a>&lt;int&gt;(k)) {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            static_assert(std::is_arithmetic&lt;T&gt;());</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        };</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        ~<a class="code" href="classknearest_1_1KNearestNeighbors.html">KNearestNeighbors</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classknearest_1_1KNearestNeighbors.html#a0fec989ad421fc90587af71946450171">   42</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classknearest_1_1KNearestNeighbors.html#a0fec989ad421fc90587af71946450171">train</a>(<span class="keyword">const</span> <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a> &amp;sample, <a class="code" href="classparameter_1_1Parameter.html">Parameter&lt;int&gt;</a> param)<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            this-&gt;_sample = sample; <span class="comment">//copy the sample</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            this-&gt;_k = param;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classknearest_1_1KNearestNeighbors.html#aec1203106ca683bd3f8df82c7b1e01f2">   49</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classknearest_1_1KNearestNeighbors.html#aec1203106ca683bd3f8df82c7b1e01f2">train</a>(<span class="keyword">const</span> <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a> &amp;sample)<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            assert(this-&gt;_k.value());</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            train(sample, this-&gt;_k);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classknearest_1_1KNearestNeighbors.html#aac0acac61d956207a46ebfb17e7080df">   55</a></span>&#160;        <a class="code" href="classparameter_1_1Parameter.html">Parameter&lt;int&gt;</a> <a class="code" href="classknearest_1_1KNearestNeighbors.html#aac0acac61d956207a46ebfb17e7080df">hyperparameter</a>()<span class="keyword"> const override </span>{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">return</span> this-&gt;_k;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classknearest_1_1KNearestNeighbors.html#ad19fab8006ec6fa1548f439b8a0d9029">   60</a></span>&#160;        Q <a class="code" href="classknearest_1_1KNearestNeighbors.html#ad19fab8006ec6fa1548f439b8a0d9029">predict</a>(<a class="code" href="classinput_1_1Instance.html">Instance&lt;T&gt;</a> input)<span class="keyword"> const override </span>{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keyword">using</span> pair_dq = pair&lt;double, Q&gt;;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="comment">//not a great problem the comparison between floats here, because</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="comment">//even if there are rounding errors that influence the result</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="comment">//they are basically the same, so it doesn&#39;t matter a lot which one is included</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keyword">auto</span> compare = [](pair_dq lhs, pair_dq rhs) -&gt; <span class="keywordtype">bool</span> {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">return</span> lhs.first &lt; rhs.first;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            };</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            std::priority_queue&lt;pair_dq, std::vector&lt;pair_dq&gt;, decltype(compare)&gt; pq(compare);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">for</span> (int64_t i = 0; i &lt; this-&gt;_sample.size(); i++) {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordflow">if</span> (i &lt; this-&gt;_k.value()) pq.push(pair_dq(input.euclidean(this-&gt;_sample[i]), this-&gt;_sample[i].label()));</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    <span class="keyword">auto</span> d = input.euclidean(this-&gt;_sample[i]);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    <span class="keywordflow">if</span> (d &lt; pq.top().first) {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                        pq.pop();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                        pq.push(pair_dq(d, this-&gt;_sample[i].label()));</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                }</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            std::sort(arr.begin(), arr.end());</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            Q lab{arr[0]};</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordtype">float</span> max{-INFINITY};</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordtype">int</span> count{1};</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; arr.size(); i++) {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordflow">if</span> (arr[i] == arr[i+1]) {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                    count++;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                    <span class="keywordflow">if</span> (count &gt; max) {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                        lab = arr[i];</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                        max = count;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                    }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                    count = 1;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keywordflow">return</span> lab;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        std::unique_ptr&lt;loss::LossFunction&lt;T, Q&gt;&gt; lossFunction()<span class="keyword"> const override </span>{</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keywordflow">return</span> std::unique_ptr&lt;loss::LossFunction&lt;T, Q&gt;&gt;(<span class="keyword">new</span> <a class="code" href="classloss_1_1ZeroOneLoss.html">loss::ZeroOneLoss&lt;T, Q&gt;</a>);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        Parameter&lt;int&gt; _k;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        Sample&lt;T, Q&gt; _sample{};</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    };</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            std::vector&lt;Q&gt; arr{};</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordflow">while</span> (!pq.empty()) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                arr.push_back(pq.top().second);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                pq.pop();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            std::sort(arr.begin(), arr.end());</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            Q lab{arr[0]};</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordtype">float</span> max{-INFINITY};</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordtype">int</span> count{1};</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; arr.size(); i++) {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="keywordflow">if</span> (arr[i] == arr[i+1]) {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                    count++;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                    <span class="keywordflow">if</span> (count &gt; max) {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                        lab = arr[i];</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                        max = count;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                    count = 1;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <span class="keywordflow">return</span> lab;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        }</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classknearest_1_1KNearestNeighbors.html#a1504f95de92d83f02e1caf7b9e0e5422">  108</a></span>&#160;        std::unique_ptr&lt;loss::LossFunction&lt;T, Q&gt;&gt; <a class="code" href="classknearest_1_1KNearestNeighbors.html#a1504f95de92d83f02e1caf7b9e0e5422">lossFunction</a>()<span class="keyword"> const override </span>{</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keywordflow">return</span> std::unique_ptr&lt;loss::LossFunction&lt;T, Q&gt;&gt;(<span class="keyword">new</span> <a class="code" href="classloss_1_1ZeroOneLoss.html">loss::ZeroOneLoss&lt;T, Q&gt;</a>);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <a class="code" href="classparameter_1_1Parameter.html">Parameter&lt;int&gt;</a> _k;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a> _sample{};</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    };</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassknearest_1_1KNearestNeighbors_html_ad19fab8006ec6fa1548f439b8a0d9029"><div class="ttname"><a href="classknearest_1_1KNearestNeighbors.html#ad19fab8006ec6fa1548f439b8a0d9029">knearest::KNearestNeighbors::predict</a></div><div class="ttdeci">Q predict(Instance&lt; T &gt; input) const override</div><div class="ttdef"><b>Definition:</b> KNearestNeighbors.h:54</div></div>
-<div class="ttc" id="aclassparameter_1_1Parameter_html"><div class="ttname"><a href="classparameter_1_1Parameter.html">parameter::Parameter&lt; int &gt;</a></div></div>
-<div class="ttc" id="aclassknearest_1_1KNearestNeighbors_html"><div class="ttname"><a href="classknearest_1_1KNearestNeighbors.html">knearest::KNearestNeighbors</a></div><div class="ttdoc">A test class.</div><div class="ttdef"><b>Definition:</b> KNearestNeighbors.h:29</div></div>
+<div class="ttc" id="aclassknearest_1_1KNearestNeighbors_html_ad19fab8006ec6fa1548f439b8a0d9029"><div class="ttname"><a href="classknearest_1_1KNearestNeighbors.html#ad19fab8006ec6fa1548f439b8a0d9029">knearest::KNearestNeighbors::predict</a></div><div class="ttdeci">Q predict(Instance&lt; T &gt; input) const override</div><div class="ttdef"><b>Definition:</b> KNearestNeighbors.h:60</div></div>
+<div class="ttc" id="aclassparameter_1_1Parameter_html"><div class="ttname"><a href="classparameter_1_1Parameter.html">parameter::Parameter</a></div><div class="ttdoc">A (hyper)parameter, i.e. a parameter that is passed to a learner and that influences its training and...</div><div class="ttdef"><b>Definition:</b> Parameter.h:25</div></div>
+<div class="ttc" id="aclassknearest_1_1KNearestNeighbors_html"><div class="ttname"><a href="classknearest_1_1KNearestNeighbors.html">knearest::KNearestNeighbors</a></div><div class="ttdoc">K-Nearest Neighbors algorithm implementation.</div><div class="ttdef"><b>Definition:</b> KNearestNeighbors.h:29</div></div>
+<div class="ttc" id="aclassknearest_1_1KNearestNeighbors_html_aac0acac61d956207a46ebfb17e7080df"><div class="ttname"><a href="classknearest_1_1KNearestNeighbors.html#aac0acac61d956207a46ebfb17e7080df">knearest::KNearestNeighbors::hyperparameter</a></div><div class="ttdeci">Parameter&lt; int &gt; hyperparameter() const override</div><div class="ttdoc">Simply returns the parameter k</div><div class="ttdef"><b>Definition:</b> KNearestNeighbors.h:55</div></div>
+<div class="ttc" id="aLearner_8h_html"><div class="ttname"><a href="Learner_8h.html">Learner.h</a></div></div>
 <div class="ttc" id="aclasssample_1_1Sample_html"><div class="ttname"><a href="classsample_1_1Sample.html">sample::Sample</a></div><div class="ttdef"><b>Definition:</b> Sample.h:24</div></div>
 <div class="ttc" id="anamespaceknearest_html"><div class="ttname"><a href="namespaceknearest.html">knearest</a></div><div class="ttdoc">Namespace containing the K nearest neighbor algorithm.</div><div class="ttdef"><b>Definition:</b> KNearestNeighbors.h:23</div></div>
-<div class="ttc" id="aclassloss_1_1ZeroOneLoss_html"><div class="ttname"><a href="classloss_1_1ZeroOneLoss.html">loss::ZeroOneLoss</a></div><div class="ttdef"><b>Definition:</b> LossFunction.h:31</div></div>
+<div class="ttc" id="aclassloss_1_1ZeroOneLoss_html"><div class="ttname"><a href="classloss_1_1ZeroOneLoss.html">loss::ZeroOneLoss</a></div><div class="ttdef"><b>Definition:</b> LossFunction.h:32</div></div>
+<div class="ttc" id="aclassknearest_1_1KNearestNeighbors_html_a1504f95de92d83f02e1caf7b9e0e5422"><div class="ttname"><a href="classknearest_1_1KNearestNeighbors.html#a1504f95de92d83f02e1caf7b9e0e5422">knearest::KNearestNeighbors::lossFunction</a></div><div class="ttdeci">std::unique_ptr&lt; loss::LossFunction&lt; T, Q &gt; &gt; lossFunction() const override</div><div class="ttdef"><b>Definition:</b> KNearestNeighbors.h:108</div></div>
 <div class="ttc" id="aParameter_8h_html"><div class="ttname"><a href="Parameter_8h.html">Parameter.h</a></div></div>
-<div class="ttc" id="aclasslearner_1_1Learner_html"><div class="ttname"><a href="classlearner_1_1Learner.html">learner::Learner</a></div><div class="ttdef"><b>Definition:</b> Learner.h:20</div></div>
+<div class="ttc" id="aclasslearner_1_1Learner_html"><div class="ttname"><a href="classlearner_1_1Learner.html">learner::Learner</a></div><div class="ttdef"><b>Definition:</b> Learner.h:21</div></div>
+<div class="ttc" id="aLossFunction_8h_html"><div class="ttname"><a href="LossFunction_8h.html">LossFunction.h</a></div></div>
 <div class="ttc" id="aclassinput_1_1Instance_html"><div class="ttname"><a href="classinput_1_1Instance.html">input::Instance</a></div><div class="ttdef"><b>Definition:</b> Instance.h:15</div></div>
+<div class="ttc" id="aclassknearest_1_1KNearestNeighbors_html_a21041c378ec8700cedc09ec751122b05"><div class="ttname"><a href="classknearest_1_1KNearestNeighbors.html#a21041c378ec8700cedc09ec751122b05">knearest::KNearestNeighbors::KNearestNeighbors</a></div><div class="ttdeci">KNearestNeighbors(int k)</div><div class="ttdef"><b>Definition:</b> KNearestNeighbors.h:34</div></div>
+<div class="ttc" id="aclassknearest_1_1KNearestNeighbors_html_a0fec989ad421fc90587af71946450171"><div class="ttname"><a href="classknearest_1_1KNearestNeighbors.html#a0fec989ad421fc90587af71946450171">knearest::KNearestNeighbors::train</a></div><div class="ttdeci">void train(const Sample&lt; T, Q &gt; &amp;sample, Parameter&lt; int &gt; param) override</div><div class="ttdoc">Simply sets up the class' instance, no calculations are done at this stage.</div><div class="ttdef"><b>Definition:</b> KNearestNeighbors.h:42</div></div>
+<div class="ttc" id="aclassknearest_1_1KNearestNeighbors_html_aec1203106ca683bd3f8df82c7b1e01f2"><div class="ttname"><a href="classknearest_1_1KNearestNeighbors.html#aec1203106ca683bd3f8df82c7b1e01f2">knearest::KNearestNeighbors::train</a></div><div class="ttdeci">void train(const Sample&lt; T, Q &gt; &amp;sample) override</div><div class="ttdoc">The same as calling the other train method with the same sample and the previously passed parameter k...</div><div class="ttdef"><b>Definition:</b> KNearestNeighbors.h:49</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

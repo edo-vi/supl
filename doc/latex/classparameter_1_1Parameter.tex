@@ -1,17 +1,58 @@
 \hypertarget{classparameter_1_1Parameter}{}\doxysection{parameter\+::Parameter$<$ T $>$ Class Template Reference}
 \label{classparameter_1_1Parameter}\index{parameter::Parameter$<$ T $>$@{parameter::Parameter$<$ T $>$}}
+
+
+A (hyper)parameter, i.\+e. a parameter that is passed to a learner and that influences its training and prediction phases.  
+
+
+
+
+{\ttfamily \#include $<$Parameter.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classparameter_1_1Parameter_a68d17989c3047f6a2051842d051285a9}\label{classparameter_1_1Parameter_a68d17989c3047f6a2051842d051285a9}} 
-{\bfseries Parameter} (const T \&value)
+\mbox{\hyperlink{classparameter_1_1Parameter_a68d17989c3047f6a2051842d051285a9}{Parameter}} (const T \&\mbox{\hyperlink{classparameter_1_1Parameter_a502d1f17373f478cdf8db1c46745a440}{value}})
 \item 
 \mbox{\Hypertarget{classparameter_1_1Parameter_ae78d6d781db4f85c1b9eddeb8b9585d2}\label{classparameter_1_1Parameter_ae78d6d781db4f85c1b9eddeb8b9585d2}} 
 bool {\bfseries operator==} (const \mbox{\hyperlink{classparameter_1_1Parameter}{Parameter}}$<$ T $>$ \&other) const
 \item 
-\mbox{\Hypertarget{classparameter_1_1Parameter_a502d1f17373f478cdf8db1c46745a440}\label{classparameter_1_1Parameter_a502d1f17373f478cdf8db1c46745a440}} 
-T {\bfseries value} () const noexcept
+T \mbox{\hyperlink{classparameter_1_1Parameter_a502d1f17373f478cdf8db1c46745a440}{value}} () const noexcept
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class parameter\+::\+Parameter$<$ T $>$}
+
+A (hyper)parameter, i.\+e. a parameter that is passed to a learner and that influences its training and prediction phases. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classparameter_1_1Parameter_a68d17989c3047f6a2051842d051285a9}\label{classparameter_1_1Parameter_a68d17989c3047f6a2051842d051285a9}} 
+\index{parameter::Parameter$<$ T $>$@{parameter::Parameter$<$ T $>$}!Parameter@{Parameter}}
+\index{Parameter@{Parameter}!parameter::Parameter$<$ T $>$@{parameter::Parameter$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Parameter()}{Parameter()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classparameter_1_1Parameter}{parameter\+::\+Parameter}}$<$ T $>$\+::\mbox{\hyperlink{classparameter_1_1Parameter}{Parameter}} (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The value of the parameter \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classparameter_1_1Parameter_a502d1f17373f478cdf8db1c46745a440}\label{classparameter_1_1Parameter_a502d1f17373f478cdf8db1c46745a440}} 
+\index{parameter::Parameter$<$ T $>$@{parameter::Parameter$<$ T $>$}!value@{value}}
+\index{value@{value}!parameter::Parameter$<$ T $>$@{parameter::Parameter$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{value()}{value()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classparameter_1_1Parameter}{parameter\+::\+Parameter}}$<$ T $>$\+::value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\begin{DoxyReturn}{Returns}
+The value of the parameter 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
