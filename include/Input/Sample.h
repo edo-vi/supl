@@ -1,8 +1,9 @@
-//@author: ***REMOVED***
-//@Date: July 2020
-//@Version: 0.1
-//@File: Definition and implementation of Sample, ValidationSample, SlicedSample and SlicedSettedSample; it also contains
-//       the implementation of the function sampleFromCsv.
+///@file Sample.h
+///@author: ***REMOVED***
+///@Date: July 2020
+///@Version: 0.1
+///@File: Definition and implementation of Sample, ValidationSample, SlicedSample and SlicedSettedSample; it also contains
+///the implementation of the function sampleFromCsv.
 #pragma once
 
 #include "Instance.h"               //LabeledInstance
@@ -13,21 +14,27 @@
 #include <vector>       //vector
 #include <cassert>      //assert
 #include <algorithm>    //shuffle
-
+///@brief Namespace containing all the definitions and implementations of classes representing samples of labeled
+///datapoints (Sample), samples with defined disjoint subsets (SlicedSample), samples with defined disjoint subsets
+///with one that is the currently ´selected' subset (SlicedSettedSample), union of samples representing a training
+///sample and a validation sample (ValidationSample)
 namespace sample {
     using namespace input;
 
     template <typename T, typename Q>
     struct ValidationSample;
-
+    ///@brief A sample, i.e. a sequence of labeled data points
     template<typename T, typename Q>
     class Sample {
     public:
         Sample() = default;
+        ///@input s Variable-sized array of labeled instances whose datapoints are of type T and its labels of type Q
         explicit Sample(const std::vector<LabeledInstance<T, Q>>& s) : _arr(s) {}
+        ///@input sample Another sample of the same type used to construct a copy
         Sample(const Sample<T, Q>& sample) :
                 _arr(sample._arr)
                 {}
+        ///@return The size of the sample, i.e. the number of labeled instances wrapped by the sample instance
         int64_t size() const {
             return int64_t{_arr.size()};
         };
@@ -49,6 +56,7 @@ namespace sample {
             return v;
         };
         */
+        ///@param index The index of the instance
         LabeledInstance<T, Q> operator[](int64_t index) const {
             return _arr[index];
         }

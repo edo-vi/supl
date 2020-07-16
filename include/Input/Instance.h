@@ -1,7 +1,8 @@
-//@author: ***REMOVED***
-//@Date: June 2020
-//@Version: 0.1
-//@File: Definition of the Instance class and its children
+///@file Instance.h
+///@author: ***REMOVED***
+///@Date: June 2020
+///@Version: 0.1
+///@File: Definition of the Instance class and its children
 #pragma once
 
 #include <vector> //vector
