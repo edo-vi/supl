@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['knearest_46',['knearest',['../namespaceknearest.html',1,'']]]
+  ['knearest_50',['knearest',['../namespaceknearest.html',1,'']]]
 ];

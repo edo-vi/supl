@@ -1,29 +1,151 @@
 \hypertarget{classlearner_1_1Learner}{}\doxysection{learner\+::Learner$<$ T, Q, P $>$ Class Template Reference}
 \label{classlearner_1_1Learner}\index{learner::Learner$<$ T, Q, P $>$@{learner::Learner$<$ T, Q, P $>$}}
+
+
+Abstract learner interface, inherited by all classification/regression-\/based algorithms.  
+
+
+
+
+{\ttfamily \#include $<$Learner.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classlearner_1_1Learner_a1fb5c1c2f10cc9ce149f576b57c88bea}\label{classlearner_1_1Learner_a1fb5c1c2f10cc9ce149f576b57c88bea}} 
-virtual void {\bfseries train} (const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&sample, \mbox{\hyperlink{classparameter_1_1Parameter}{Parameter}}$<$ P $>$ param)=0
+virtual void \mbox{\hyperlink{classlearner_1_1Learner_a1fb5c1c2f10cc9ce149f576b57c88bea}{train}} (const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&sample, \mbox{\hyperlink{classparameter_1_1Parameter}{Parameter}}$<$ P $>$ param)=0
+\begin{DoxyCompactList}\small\item\em Trains the learner on the passed sample based on the hyperparameter, possibily changing its internal state. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classlearner_1_1Learner_a6f88d4622830272103463b86cf92dfad}{train}} (const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&sample)=0
+\begin{DoxyCompactList}\small\item\em The same as calling the other {\itshape train} method with the same sample and the previously passed parameter (in the constructor) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classlearner_1_1Learner_acb213e5bab236eb1193ef7a88ecc8fd0}{test}} (const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&sample) const
+\begin{DoxyCompactList}\small\item\em Test the learner on the passed sample and returns the empirical error. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classlearner_1_1Learner_a120c493a55f648ab72adadb2ae05d43e}{test}} (const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&sample, bool verbose) const
+\begin{DoxyCompactList}\small\item\em Test the learner on the passed sample and returns the empirical error; same as the other method but with support for verbose output messages, showing the learner\textquotesingle{}s decisions on the input test sample and its errors. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classparameter_1_1Parameter}{Parameter}}$<$ P $>$ \mbox{\hyperlink{classlearner_1_1Learner_ae80fb425a705f19a94113d742232423e}{hyperparameter}} () const =0
+\begin{DoxyCompactList}\small\item\em Simply returns the parameter of the learner. \end{DoxyCompactList}\item 
+virtual Q \mbox{\hyperlink{classlearner_1_1Learner_af191c0bd6e348a5fbed2bb615bf810ae}{predict}} (\mbox{\hyperlink{classinput_1_1Instance}{Instance}}$<$ T $>$ input) const =0
 \item 
-\mbox{\Hypertarget{classlearner_1_1Learner_a6f88d4622830272103463b86cf92dfad}\label{classlearner_1_1Learner_a6f88d4622830272103463b86cf92dfad}} 
-virtual void {\bfseries train} (const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&sample)=0
-\item 
-\mbox{\Hypertarget{classlearner_1_1Learner_acb213e5bab236eb1193ef7a88ecc8fd0}\label{classlearner_1_1Learner_acb213e5bab236eb1193ef7a88ecc8fd0}} 
-double {\bfseries test} (const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&sample) const
-\item 
-\mbox{\Hypertarget{classlearner_1_1Learner_a120c493a55f648ab72adadb2ae05d43e}\label{classlearner_1_1Learner_a120c493a55f648ab72adadb2ae05d43e}} 
-double {\bfseries test} (const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&sample, bool verbose) const
-\item 
-\mbox{\Hypertarget{classlearner_1_1Learner_ae80fb425a705f19a94113d742232423e}\label{classlearner_1_1Learner_ae80fb425a705f19a94113d742232423e}} 
-virtual \mbox{\hyperlink{classparameter_1_1Parameter}{Parameter}}$<$ P $>$ {\bfseries hyperparameter} () const =0
-\item 
-\mbox{\Hypertarget{classlearner_1_1Learner_af191c0bd6e348a5fbed2bb615bf810ae}\label{classlearner_1_1Learner_af191c0bd6e348a5fbed2bb615bf810ae}} 
-virtual Q {\bfseries predict} (\mbox{\hyperlink{classinput_1_1Instance}{Instance}}$<$ T $>$ input) const =0
-\item 
-\mbox{\Hypertarget{classlearner_1_1Learner_a70e3e8dd5748dab930f05309d7afcf54}\label{classlearner_1_1Learner_a70e3e8dd5748dab930f05309d7afcf54}} 
-virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classloss_1_1LossFunction}{loss\+::\+Loss\+Function}}$<$ T, Q $>$ $>$ {\bfseries loss\+Function} () const =0
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classloss_1_1LossFunction}{loss\+::\+Loss\+Function}}$<$ T, Q $>$ $>$ \mbox{\hyperlink{classlearner_1_1Learner_a70e3e8dd5748dab930f05309d7afcf54}{loss\+Function}} () const =0
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename Q, typename P$>$\newline
+class learner\+::\+Learner$<$ T, Q, P $>$}
+
+Abstract learner interface, inherited by all classification/regression-\/based algorithms. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlearner_1_1Learner_ae80fb425a705f19a94113d742232423e}\label{classlearner_1_1Learner_ae80fb425a705f19a94113d742232423e}} 
+\index{learner::Learner$<$ T, Q, P $>$@{learner::Learner$<$ T, Q, P $>$}!hyperparameter@{hyperparameter}}
+\index{hyperparameter@{hyperparameter}!learner::Learner$<$ T, Q, P $>$@{learner::Learner$<$ T, Q, P $>$}}
+\doxysubsubsection{\texorpdfstring{hyperparameter()}{hyperparameter()}}
+{\footnotesize\ttfamily template$<$typename T , typename Q , typename P $>$ \\
+virtual \mbox{\hyperlink{classparameter_1_1Parameter}{Parameter}}$<$P$>$ \mbox{\hyperlink{classlearner_1_1Learner}{learner\+::\+Learner}}$<$ T, Q, P $>$\+::hyperparameter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Simply returns the parameter of the learner. 
+
+\begin{DoxyReturn}{Returns}
+The parameter of the learner 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlearner_1_1Learner_a70e3e8dd5748dab930f05309d7afcf54}\label{classlearner_1_1Learner_a70e3e8dd5748dab930f05309d7afcf54}} 
+\index{learner::Learner$<$ T, Q, P $>$@{learner::Learner$<$ T, Q, P $>$}!lossFunction@{lossFunction}}
+\index{lossFunction@{lossFunction}!learner::Learner$<$ T, Q, P $>$@{learner::Learner$<$ T, Q, P $>$}}
+\doxysubsubsection{\texorpdfstring{lossFunction()}{lossFunction()}}
+{\footnotesize\ttfamily template$<$typename T , typename Q , typename P $>$ \\
+virtual std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classloss_1_1LossFunction}{loss\+::\+Loss\+Function}}$<$T, Q$>$ $>$ \mbox{\hyperlink{classlearner_1_1Learner}{learner\+::\+Learner}}$<$ T, Q, P $>$\+::loss\+Function (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+Unique\+\_\+ptr to the loss function used by the learner 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlearner_1_1Learner_af191c0bd6e348a5fbed2bb615bf810ae}\label{classlearner_1_1Learner_af191c0bd6e348a5fbed2bb615bf810ae}} 
+\index{learner::Learner$<$ T, Q, P $>$@{learner::Learner$<$ T, Q, P $>$}!predict@{predict}}
+\index{predict@{predict}!learner::Learner$<$ T, Q, P $>$@{learner::Learner$<$ T, Q, P $>$}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily template$<$typename T , typename Q , typename P $>$ \\
+virtual Q \mbox{\hyperlink{classlearner_1_1Learner}{learner\+::\+Learner}}$<$ T, Q, P $>$\+::predict (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classinput_1_1Instance}{Instance}}$<$ T $>$}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & An instance of type T (vector of elements of type T) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The label predicted for the passed instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlearner_1_1Learner_acb213e5bab236eb1193ef7a88ecc8fd0}\label{classlearner_1_1Learner_acb213e5bab236eb1193ef7a88ecc8fd0}} 
+\index{learner::Learner$<$ T, Q, P $>$@{learner::Learner$<$ T, Q, P $>$}!test@{test}}
+\index{test@{test}!learner::Learner$<$ T, Q, P $>$@{learner::Learner$<$ T, Q, P $>$}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename Q , typename P $>$ \\
+double \mbox{\hyperlink{classlearner_1_1Learner}{learner\+::\+Learner}}$<$ T, Q, P $>$\+::test (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&}]{sample }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Test the learner on the passed sample and returns the empirical error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & A sample of Labeled\+Instances whose datapoints are of type T and their label of type Q \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A double representing the empirical risk on the sample 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlearner_1_1Learner_a120c493a55f648ab72adadb2ae05d43e}\label{classlearner_1_1Learner_a120c493a55f648ab72adadb2ae05d43e}} 
+\index{learner::Learner$<$ T, Q, P $>$@{learner::Learner$<$ T, Q, P $>$}!test@{test}}
+\index{test@{test}!learner::Learner$<$ T, Q, P $>$@{learner::Learner$<$ T, Q, P $>$}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename Q , typename P $>$ \\
+double \mbox{\hyperlink{classlearner_1_1Learner}{learner\+::\+Learner}}$<$ T, Q, P $>$\+::test (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&}]{sample,  }\item[{bool}]{verbose }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Test the learner on the passed sample and returns the empirical error; same as the other method but with support for verbose output messages, showing the learner\textquotesingle{}s decisions on the input test sample and its errors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & A sample of Labeled\+Instances whose datapoints are of type T and their label of type Q \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A double representing the empirical risk on the sample 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlearner_1_1Learner_a6f88d4622830272103463b86cf92dfad}\label{classlearner_1_1Learner_a6f88d4622830272103463b86cf92dfad}} 
+\index{learner::Learner$<$ T, Q, P $>$@{learner::Learner$<$ T, Q, P $>$}!train@{train}}
+\index{train@{train}!learner::Learner$<$ T, Q, P $>$@{learner::Learner$<$ T, Q, P $>$}}
+\doxysubsubsection{\texorpdfstring{train()}{train()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename Q , typename P $>$ \\
+virtual void \mbox{\hyperlink{classlearner_1_1Learner}{learner\+::\+Learner}}$<$ T, Q, P $>$\+::train (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&}]{sample }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+The same as calling the other {\itshape train} method with the same sample and the previously passed parameter (in the constructor) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & A sample of Labeled\+Instances whose datapoints are of type T and their label of type Q \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classlearner_1_1Learner_a1fb5c1c2f10cc9ce149f576b57c88bea}\label{classlearner_1_1Learner_a1fb5c1c2f10cc9ce149f576b57c88bea}} 
+\index{learner::Learner$<$ T, Q, P $>$@{learner::Learner$<$ T, Q, P $>$}!train@{train}}
+\index{train@{train}!learner::Learner$<$ T, Q, P $>$@{learner::Learner$<$ T, Q, P $>$}}
+\doxysubsubsection{\texorpdfstring{train()}{train()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename Q , typename P $>$ \\
+virtual void \mbox{\hyperlink{classlearner_1_1Learner}{learner\+::\+Learner}}$<$ T, Q, P $>$\+::train (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&}]{sample,  }\item[{\mbox{\hyperlink{classparameter_1_1Parameter}{Parameter}}$<$ P $>$}]{param }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Trains the learner on the passed sample based on the hyperparameter, possibily changing its internal state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & A sample of Labeled\+Instances whose datapoints are of type T and their label of type Q \\
+\hline
+{\em param} & An (hyper)parameter, used in the training and/or labeling phases \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

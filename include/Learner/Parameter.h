@@ -9,7 +9,7 @@
 #include <unordered_set>       //unordered_set
 #include <vector>              //vector
 
-/// Namespace including the definitions and implementations of all classes related to parameters, parameter spaces,
+///@brief Namespace including the definitions and implementations of all classes related to parameters, parameter spaces,
 /// parameter sets etc.
 namespace parameter {
     /// A generic parameter space, set where a certain parameter lives (i.e. can take values)

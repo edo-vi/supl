@@ -1,19 +1,26 @@
 \hypertarget{classsample_1_1Sample}{}\doxysection{sample\+::Sample$<$ T, Q $>$ Class Template Reference}
 \label{classsample_1_1Sample}\index{sample::Sample$<$ T, Q $>$@{sample::Sample$<$ T, Q $>$}}
+
+
+A sample, i.\+e. a sequence of labeled data points.  
+
+
+
+
+{\ttfamily \#include $<$Sample.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classsample_1_1Sample_af4c3ab39d0a70fd90e15230fb1203146}\label{classsample_1_1Sample_af4c3ab39d0a70fd90e15230fb1203146}} 
-{\bfseries Sample} (const std\+::vector$<$ \mbox{\hyperlink{classinput_1_1LabeledInstance}{Labeled\+Instance}}$<$ T, Q $>$$>$ \&s)
-\item 
+\mbox{\hyperlink{classsample_1_1Sample_af4c3ab39d0a70fd90e15230fb1203146}{Sample}} (const std\+::vector$<$ \mbox{\hyperlink{classinput_1_1LabeledInstance}{Labeled\+Instance}}$<$ T, Q $>$$>$ \&s)
+\begin{DoxyCompactList}\small\item\em @input s Variable-\/sized array of labeled instances whose datapoints are of type T and its labels of type Q \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classsample_1_1Sample_a74cfc48975805f21ae86ca653110f5e9}\label{classsample_1_1Sample_a74cfc48975805f21ae86ca653110f5e9}} 
-{\bfseries Sample} (const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&sample)
+\mbox{\hyperlink{classsample_1_1Sample_a74cfc48975805f21ae86ca653110f5e9}{Sample}} (const \mbox{\hyperlink{classsample_1_1Sample}{Sample}}$<$ T, Q $>$ \&sample)
+\begin{DoxyCompactList}\small\item\em @input sample Another sample of the same type used to construct a copy \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{classsample_1_1Sample_af7f0866a15073a21f67f76f6fc821143}{size}} () const
 \item 
-\mbox{\Hypertarget{classsample_1_1Sample_af7f0866a15073a21f67f76f6fc821143}\label{classsample_1_1Sample_af7f0866a15073a21f67f76f6fc821143}} 
-int64\+\_\+t {\bfseries size} () const
-\item 
-\mbox{\Hypertarget{classsample_1_1Sample_a14f8489acdcf1b00bdb66a13e8a43d22}\label{classsample_1_1Sample_a14f8489acdcf1b00bdb66a13e8a43d22}} 
-\mbox{\hyperlink{classinput_1_1LabeledInstance}{Labeled\+Instance}}$<$ T, Q $>$ {\bfseries operator\mbox{[}$\,$\mbox{]}} (int64\+\_\+t index) const
+\mbox{\hyperlink{classinput_1_1LabeledInstance}{Labeled\+Instance}}$<$ T, Q $>$ \mbox{\hyperlink{classsample_1_1Sample_a14f8489acdcf1b00bdb66a13e8a43d22}{operator\mbox{[}$\,$\mbox{]}}} (int64\+\_\+t index) const
 \item 
 \mbox{\Hypertarget{classsample_1_1Sample_a18c41717485ca4b82af0c367b7d55420}\label{classsample_1_1Sample_a18c41717485ca4b82af0c367b7d55420}} 
 \mbox{\hyperlink{classinput_1_1LabeledInstance}{Labeled\+Instance}}$<$ T, Q $>$ {\bfseries begin} ()
@@ -35,6 +42,37 @@ std\+::vector$<$ \mbox{\hyperlink{classinput_1_1LabeledInstance}{Labeled\+Instan
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename Q$>$\newline
+class sample\+::\+Sample$<$ T, Q $>$}
+
+A sample, i.\+e. a sequence of labeled data points. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsample_1_1Sample_a14f8489acdcf1b00bdb66a13e8a43d22}\label{classsample_1_1Sample_a14f8489acdcf1b00bdb66a13e8a43d22}} 
+\index{sample::Sample$<$ T, Q $>$@{sample::Sample$<$ T, Q $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!sample::Sample$<$ T, Q $>$@{sample::Sample$<$ T, Q $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily template$<$typename T , typename Q $>$ \\
+\mbox{\hyperlink{classinput_1_1LabeledInstance}{Labeled\+Instance}}$<$T, Q$>$ \mbox{\hyperlink{classsample_1_1Sample}{sample\+::\+Sample}}$<$ T, Q $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the instance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsample_1_1Sample_af7f0866a15073a21f67f76f6fc821143}\label{classsample_1_1Sample_af7f0866a15073a21f67f76f6fc821143}} 
+\index{sample::Sample$<$ T, Q $>$@{sample::Sample$<$ T, Q $>$}!size@{size}}
+\index{size@{size}!sample::Sample$<$ T, Q $>$@{sample::Sample$<$ T, Q $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename T , typename Q $>$ \\
+int64\+\_\+t \mbox{\hyperlink{classsample_1_1Sample}{sample\+::\+Sample}}$<$ T, Q $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+The size of the sample, i.\+e. the number of labeled instances wrapped by the sample instance 
+\end{DoxyReturn}
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/edoardo/cl/supl/include/\+Input/Sample.\+h\end{DoxyCompactItemize}
+/home/edoardo/cl/supl/include/\+Input/\mbox{\hyperlink{Sample_8h}{Sample.\+h}}\end{DoxyCompactItemize}

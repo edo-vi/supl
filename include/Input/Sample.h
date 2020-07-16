@@ -14,10 +14,11 @@
 #include <vector>       //vector
 #include <cassert>      //assert
 #include <algorithm>    //shuffle
+
 ///@brief Namespace containing all the definitions and implementations of classes representing samples of labeled
 ///datapoints (Sample), samples with defined disjoint subsets (SlicedSample), samples with defined disjoint subsets
 ///with one that is the currently ´selected' subset (SlicedSettedSample), union of samples representing a training
-///sample and a validation sample (ValidationSample)
+///sample and a test sample (ValidationSample)
 namespace sample {
     using namespace input;
 

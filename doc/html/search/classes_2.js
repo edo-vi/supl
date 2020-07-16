@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['knearestneighbors_31',['KNearestNeighbors',['../classknearest_1_1KNearestNeighbors.html',1,'knearest']]]
+  ['knearestneighbors_35',['KNearestNeighbors',['../classknearest_1_1KNearestNeighbors.html',1,'knearest']]]
 ];
