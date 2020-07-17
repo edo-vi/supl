@@ -1,4 +1,4 @@
-# Suplea
+# Supl
 
 ## Description
 C++ supervised learning library. Still work-in-progress.
