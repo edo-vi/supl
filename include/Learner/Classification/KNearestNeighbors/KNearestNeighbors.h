@@ -19,12 +19,13 @@
 #include <cstdint>     //int64_t
 #include <memory>      //unique_ptr
 
-/// Namespace containing the K nearest neighbor algorithm
+///@brief Namespace containing the K nearest neighbor algorithm
 namespace knearest {
     using namespace learner;
     using namespace std;
-
-    ///  K-Nearest Neighbors algorithm implementation
+    ///@param T The type of the elements making up the instances of the samples used by the learner
+    ///@param Q The type of the labels of the instances
+    ///@brief K-Nearest Neighbors algorithm implementation
     template <typename T, typename Q>
     class KNearestNeighbors : public Learner<T, Q, int> {
     public:
