@@ -10,9 +10,10 @@
 #include <vector>              //vector
 
 ///@brief Namespace including the definitions and implementations of all classes related to parameters, parameter spaces,
-/// parameter sets etc.
+///parameter sets etc.
 namespace parameter {
-    /// A generic parameter space, set where a certain parameter lives (i.e. can take values)
+    ///@param T The type of the values in the parameter space
+    ///@brief A generic parameter space, set where a certain parameter lives (i.e. can take values)
     template <typename T>
     class ParameterSpace {
     public:
@@ -20,7 +21,9 @@ namespace parameter {
         virtual T max() = 0;
         virtual ~ParameterSpace();
     };
-    /// A (hyper)parameter, i.e. a parameter that is passed to a learner and that influences its training and prediction phases
+
+    ///@param P The type of the value `wrapped' by the parameter
+    ///@brief A (hyper)parameter, i.e. a parameter that is passed to a learner and that influences its training and prediction phases
     template<typename T>
     class Parameter {
     public:
@@ -37,7 +40,8 @@ namespace parameter {
     private:
         T _value;
     };
-    ///A fixed set of parameters, to be used for iterating on a subset of a certain parameter space
+    ///@param T The type of the values in the parameter set
+    ///@brief A fixed set of parameters, to be used for iterating on a subset of a certain parameter space
     template <typename T>
     class ParameterSet {
     public:
@@ -85,7 +89,8 @@ namespace parameter {
 
 namespace std {
     using namespace parameter;
-    ///Implementation of the hash function for a Parameter of type T (necessary for having an unordered set of Parameters)
+    ///@param T The type of the value `wrapped' by the parameter
+    ///@brief Implementation of the hash function for a Parameter of type T (necessary for having an unordered set of Parameters)
     template<typename T> struct hash<Parameter<T>> {
         std::size_t operator()(Parameter<T> const& s) const noexcept {
             return std::hash<T>()(s.value());

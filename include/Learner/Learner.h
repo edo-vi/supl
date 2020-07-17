@@ -17,7 +17,10 @@
 namespace learner {
     using namespace sample;
     using namespace parameter;
-    /// Abstract learner interface, inherited by all classification/regression-based algorithms
+    ///@param T The type of the elements making up the instances of the samples used by the learner
+    ///@param Q The type of the labels of the instances
+    ///@param P The type of the parameter of the learner
+    ///@brief Abstract learner interface, inherited by all classification/regression-based algorithms
     template<typename T, typename Q, typename P>
     class Learner {
     public:

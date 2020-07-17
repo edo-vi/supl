@@ -12,6 +12,7 @@
 
 ///@brief Namespace including all the definitions and implementations related to instances (input points) and labeled instances
 namespace input {
+    ///@param T The type of the elements making up the instance
     ///@brief An instance, i.e. a data point from the instance set. Always a vector whose elements are of type T 
     template<typename T>
     class Instance {
@@ -56,7 +57,9 @@ namespace input {
     protected:
         std::vector<T> _arr;
     };
-    ///An instance tagged with a label. An element used to construct a sample.
+    ///@param T The type of the elements making up the instance
+    ///@param Q The type of the label that tags the instance
+    ///@brief An instance tagged with a label. An element used to construct a sample.
     template<typename T, typename Q>
     class LabeledInstance : public Instance<T> {
     public:

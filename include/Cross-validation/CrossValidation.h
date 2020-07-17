@@ -14,7 +14,10 @@ namespace crossvalidation {
     using namespace parameter;
     using namespace learner;
 
-    ///@param T
+    ///@param T The type of the instances (data vectors)
+    ///@param Q The type of the labels
+    ///@param P The type of the parameters of the learner
+    ///@param k The number of disjoint subsets in which the sample is divided
     ///@param learner A Learner that will train and validate on the sample
     ///@param paramset A ParameterSet whose elements are used with the learner to calculate its error on the validation
     ///sample and from which the `best' parameter is chosen

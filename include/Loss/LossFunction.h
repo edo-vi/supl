@@ -14,6 +14,8 @@
 ///phases
 namespace loss {
     using namespace input;
+    ///@param T The type of the instances
+    ///@param Q The type of the labels of the instances
     ///@brief Abstract interface representing a loss function
     template<typename T, typename Q>
     class LossFunction {
@@ -36,7 +38,8 @@ namespace loss {
 
     template <typename T, typename Q>
     LossFunction<T, Q>::~LossFunction() = default;
-
+    ///@param T The type of the instances
+    ///@param Q The type of the labels of the instances
     ///@brief The 0-1 loss, a concrete implementation of the abstract Loss function interface
     template<typename T, typename Q>
     class ZeroOneLoss : public LossFunction<T, Q> {
@@ -50,7 +53,8 @@ namespace loss {
         };
         ~ZeroOneLoss() override = default;
     };
-
+    ///@param T The type of the instances
+    ///@param Q The type of the labels of the instances
     ///@brief The squared loss, a concrete implementation of the abstract Loss function interface
     template<typename T, typename Q>
     class SquaredLoss : public LossFunction<T, Q> {

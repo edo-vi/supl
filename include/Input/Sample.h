@@ -24,6 +24,8 @@ namespace sample {
 
     template <typename T, typename Q>
     struct ValidationSample;
+    ///@param T The type of the elements making up the instances of the sample
+    ///@param Q The type of the labels of the instances
     ///@brief A sample, i.e. a sequence of labeled data points
     template<typename T, typename Q>
     class Sample {
@@ -98,6 +100,8 @@ namespace sample {
         //std::random_device _rdev{};
         //std::mt19937 _gen{_rdev()};
     };
+    ///@param T The type of the elements making up the instances of the sample
+    ///@param Q The type of the labels of the instances
     ///@param filename String encoding the path of the CSV file that must be parsed
     ///@return A sample
     ///@brief Parse the CSV file with the given path and generates a sample from it. The file must have the
@@ -129,6 +133,9 @@ namespace sample {
 
     template <typename T, typename Q, int k>
     class SlicedSettedSample;
+    ///@param T The type of the elements making up the instances of the sample
+    ///@param Q The type of the labels of the instances
+    ///@param k The number of disjoint subsets in which the sample is divided
     ///@brief A sample that has been `sliced' into k disjoint subsets
     template <typename T, typename Q, int k>
     class SlicedSample {
@@ -148,6 +155,9 @@ namespace sample {
         Sample<T, Q> _sample;
         int64_t _num = _sample.size() / k;
     };
+    ///@param T The type of the elements making up the instances of the sample
+    ///@param Q The type of the labels of the instances
+    ///@param k The number of disjoint subsets in which the sample is divided
     ///@brief A SlicedSample with a `set' subset. This is used for Cross-Validation
     template <typename T, typename Q, int k>
     class SlicedSettedSample : public SlicedSample<T, Q, k> {
@@ -192,6 +202,8 @@ namespace sample {
         int64_t _endidx{};
 
     };
+    ///@param T The type of the elements making up the instances of the samples
+    ///@param Q The type of the labels of the instances
     ///@brief Object aggregating a training set and a test set 
     template <typename T, typename Q>
     struct ValidationSample {
