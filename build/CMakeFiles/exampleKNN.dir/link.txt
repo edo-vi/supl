@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/exampleKNN.dir/examples/exampleKNN.cpp.o  -o exampleKNN 

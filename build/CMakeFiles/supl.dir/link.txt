@@ -1,2 +1,0 @@
-/usr/bin/ar qc libsupl.a  
-/usr/bin/ranlib libsupl.a
