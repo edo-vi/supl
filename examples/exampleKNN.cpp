@@ -1,9 +1,9 @@
-/**
-@file main.cpp
-@Author: ***REMOVED***
-@Date: July 2020
-@Version: 0.1
-@File: Definition and implementation of the interface Learner
+///
+///@file exampleCNN.cpp
+///@Author: ***REMOVED***
+///@Date: July 2020
+///@Version: 0.1
+///@File: K-Nearest Neighbors example
 */
 
 #include "library.h" //Sample
