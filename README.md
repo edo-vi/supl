@@ -7,7 +7,7 @@ Algorithms currently implemented: *K-Nearest Neighbors*.
 
 ## How to run the executable
 ```
-cd build; cmake ..; make; ./main
+cd build; cmake ..; make; ./exampleKNN
 ```
 This will build the test program which will run the K-NN algorithm
 on three different common datasets: *Iris*, *Wine*, and *Ecoli*, 
