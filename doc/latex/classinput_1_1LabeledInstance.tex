@@ -1,5 +1,14 @@
 \hypertarget{classinput_1_1LabeledInstance}{}\doxysection{input\+::Labeled\+Instance$<$ T, Q $>$ Class Template Reference}
 \label{classinput_1_1LabeledInstance}\index{input::LabeledInstance$<$ T, Q $>$@{input::LabeledInstance$<$ T, Q $>$}}
+
+
+An instance tagged with a label. An element used to construct a sample.  
+
+
+
+
+{\ttfamily \#include $<$Instance.\+h$>$}
+
 Inheritance diagram for input\+::Labeled\+Instance$<$ T, Q $>$\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,24 +18,94 @@ Inheritance diagram for input\+::Labeled\+Instance$<$ T, Q $>$\+:\begin{figure}[
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classinput_1_1LabeledInstance_a956d56106d690921df7b7c3940f4522b}\label{classinput_1_1LabeledInstance_a956d56106d690921df7b7c3940f4522b}} 
-{\bfseries Labeled\+Instance} (const std\+::vector$<$ T $>$ \&input, Q label)
+\mbox{\hyperlink{classinput_1_1LabeledInstance_a956d56106d690921df7b7c3940f4522b}{Labeled\+Instance}} (const std\+::vector$<$ T $>$ \&input, Q \mbox{\hyperlink{classinput_1_1LabeledInstance_ab6902727fc4ba82fbee7c33668fdbfcd}{label}})
 \item 
-\mbox{\Hypertarget{classinput_1_1LabeledInstance_a088e4629e1a59d320dc703350dc258a3}\label{classinput_1_1LabeledInstance_a088e4629e1a59d320dc703350dc258a3}} 
-{\bfseries Labeled\+Instance} (T input\mbox{[}$\,$\mbox{]}, int64\+\_\+t size, Q label)
-\item 
-\mbox{\Hypertarget{classinput_1_1LabeledInstance_ab6902727fc4ba82fbee7c33668fdbfcd}\label{classinput_1_1LabeledInstance_ab6902727fc4ba82fbee7c33668fdbfcd}} 
-Q {\bfseries label} () const
-\item 
-\mbox{\Hypertarget{classinput_1_1LabeledInstance_adf24aa68dad403142e9ee3629f9dd9df}\label{classinput_1_1LabeledInstance_adf24aa68dad403142e9ee3629f9dd9df}} 
-\mbox{\hyperlink{classinput_1_1Instance}{Instance}}$<$ T $>$ {\bfseries instance} () const
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classinput_1_1LabeledInstance_a088e4629e1a59d320dc703350dc258a3}{Labeled\+Instance}} (T input\mbox{[}$\,$\mbox{]}, int64\+\_\+t size, Q \mbox{\hyperlink{classinput_1_1LabeledInstance_ab6902727fc4ba82fbee7c33668fdbfcd}{label}})
+\begin{DoxyCompactList}\small\item\em Construct the \mbox{\hyperlink{classinput_1_1LabeledInstance}{Labeled\+Instance}} from the elements of the array and tags it with label. \end{DoxyCompactList}\item 
+Q \mbox{\hyperlink{classinput_1_1LabeledInstance_ab6902727fc4ba82fbee7c33668fdbfcd}{label}} () const
+\begin{DoxyCompactList}\small\item\em Returns the label of the instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classinput_1_1Instance}{Instance}}$<$ T $>$ \mbox{\hyperlink{classinput_1_1LabeledInstance_adf24aa68dad403142e9ee3629f9dd9df}{instance}} () const
+\begin{DoxyCompactList}\small\item\em Returns the underline \mbox{\hyperlink{classinput_1_1Instance}{Instance}} ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classinput_1_1LabeledInstance_a9ca618c95609cf1712524f95398e3c7c}\label{classinput_1_1LabeledInstance_a9ca618c95609cf1712524f95398e3c7c}} 
 Q {\bfseries \+\_\+label}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename Q$>$\newline
+class input\+::\+Labeled\+Instance$<$ T, Q $>$}
+
+An instance tagged with a label. An element used to construct a sample. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classinput_1_1LabeledInstance_a956d56106d690921df7b7c3940f4522b}\label{classinput_1_1LabeledInstance_a956d56106d690921df7b7c3940f4522b}} 
+\index{input::LabeledInstance$<$ T, Q $>$@{input::LabeledInstance$<$ T, Q $>$}!LabeledInstance@{LabeledInstance}}
+\index{LabeledInstance@{LabeledInstance}!input::LabeledInstance$<$ T, Q $>$@{input::LabeledInstance$<$ T, Q $>$}}
+\doxysubsubsection{\texorpdfstring{LabeledInstance()}{LabeledInstance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename Q $>$ \\
+\mbox{\hyperlink{classinput_1_1LabeledInstance}{input\+::\+Labeled\+Instance}}$<$ T, Q $>$\+::\mbox{\hyperlink{classinput_1_1LabeledInstance}{Labeled\+Instance}} (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{input,  }\item[{Q}]{label }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & A variable-\/length vector of type T used to construct the \mbox{\hyperlink{classinput_1_1LabeledInstance}{Labeled\+Instance}} class instance \\
+\hline
+{\em label} & The label for the to-\/be-\/constructed \mbox{\hyperlink{classinput_1_1LabeledInstance}{Labeled\+Instance}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classinput_1_1LabeledInstance_a088e4629e1a59d320dc703350dc258a3}\label{classinput_1_1LabeledInstance_a088e4629e1a59d320dc703350dc258a3}} 
+\index{input::LabeledInstance$<$ T, Q $>$@{input::LabeledInstance$<$ T, Q $>$}!LabeledInstance@{LabeledInstance}}
+\index{LabeledInstance@{LabeledInstance}!input::LabeledInstance$<$ T, Q $>$@{input::LabeledInstance$<$ T, Q $>$}}
+\doxysubsubsection{\texorpdfstring{LabeledInstance()}{LabeledInstance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename Q $>$ \\
+\mbox{\hyperlink{classinput_1_1LabeledInstance}{input\+::\+Labeled\+Instance}}$<$ T, Q $>$\+::\mbox{\hyperlink{classinput_1_1LabeledInstance}{Labeled\+Instance}} (\begin{DoxyParamCaption}\item[{T}]{input\mbox{[}$\,$\mbox{]},  }\item[{int64\+\_\+t}]{size,  }\item[{Q}]{label }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct the \mbox{\hyperlink{classinput_1_1LabeledInstance}{Labeled\+Instance}} from the elements of the array and tags it with label. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & A fixed-\/length array of type T \\
+\hline
+{\em size} & A 64-\/bit integer indicating the size of passed array @label The label for the to-\/be-\/constructed \mbox{\hyperlink{classinput_1_1LabeledInstance}{Labeled\+Instance}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classinput_1_1LabeledInstance_adf24aa68dad403142e9ee3629f9dd9df}\label{classinput_1_1LabeledInstance_adf24aa68dad403142e9ee3629f9dd9df}} 
+\index{input::LabeledInstance$<$ T, Q $>$@{input::LabeledInstance$<$ T, Q $>$}!instance@{instance}}
+\index{instance@{instance}!input::LabeledInstance$<$ T, Q $>$@{input::LabeledInstance$<$ T, Q $>$}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily template$<$typename T , typename Q $>$ \\
+\mbox{\hyperlink{classinput_1_1Instance}{Instance}}$<$T$>$ \mbox{\hyperlink{classinput_1_1LabeledInstance}{input\+::\+Labeled\+Instance}}$<$ T, Q $>$\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the underline \mbox{\hyperlink{classinput_1_1Instance}{Instance}} ~\newline
+ 
+
+\begin{DoxyReturn}{Returns}
+An instance of type T 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classinput_1_1LabeledInstance_ab6902727fc4ba82fbee7c33668fdbfcd}\label{classinput_1_1LabeledInstance_ab6902727fc4ba82fbee7c33668fdbfcd}} 
+\index{input::LabeledInstance$<$ T, Q $>$@{input::LabeledInstance$<$ T, Q $>$}!label@{label}}
+\index{label@{label}!input::LabeledInstance$<$ T, Q $>$@{input::LabeledInstance$<$ T, Q $>$}}
+\doxysubsubsection{\texorpdfstring{label()}{label()}}
+{\footnotesize\ttfamily template$<$typename T , typename Q $>$ \\
+Q \mbox{\hyperlink{classinput_1_1LabeledInstance}{input\+::\+Labeled\+Instance}}$<$ T, Q $>$\+::label (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the label of the instance. 
+
+\begin{DoxyReturn}{Returns}
+A value of type Q 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

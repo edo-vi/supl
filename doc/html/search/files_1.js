@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['knearestneighbors_2eh_55',['KNearestNeighbors.h',['../KNearestNeighbors_8h.html',1,'']]]
+  ['instance_2eh_75',['Instance.h',['../Instance_8h.html',1,'']]]
 ];

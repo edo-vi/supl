@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parameter_52',['parameter',['../namespaceparameter.html',1,'']]]
+  ['knearest_69',['knearest',['../namespaceknearest.html',1,'']]]
 ];

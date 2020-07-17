@@ -72,19 +72,135 @@ $(function() {
 <div class="title">sample::SlicedSettedSample&lt; T, Q, k &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A <a class="el" href="classsample_1_1SlicedSample.html" title="A sample that has been ‘sliced’ into k disjoint subsets.">SlicedSample</a> with a &lsquo;set&rsquo; subset. This is used for Cross-Validation.  
+ <a href="classsample_1_1SlicedSettedSample.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Sample_8h_source.html">Sample.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a928f8ae9d71c66964d3f3e07db6b1ee2"><td class="memItemLeft" align="right" valign="top"><a id="a928f8ae9d71c66964d3f3e07db6b1ee2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SlicedSettedSample</b> (const <a class="el" href="classsample_1_1Sample.html">Sample</a>&lt; T, Q &gt; &amp;sample, int s)</td></tr>
+<tr class="memitem:a928f8ae9d71c66964d3f3e07db6b1ee2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsample_1_1SlicedSettedSample.html#a928f8ae9d71c66964d3f3e07db6b1ee2">SlicedSettedSample</a> (const <a class="el" href="classsample_1_1Sample.html">Sample</a>&lt; T, Q &gt; &amp;sample, int s)</td></tr>
 <tr class="separator:a928f8ae9d71c66964d3f3e07db6b1ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4cc64bfcbc669eeb10725bcd8286f8f"><td class="memItemLeft" align="right" valign="top"><a id="ad4cc64bfcbc669eeb10725bcd8286f8f"></a>
-<a class="el" href="classsample_1_1Sample.html">sample::Sample</a>&lt; T, Q &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>trainingSet</b> ()</td></tr>
+<tr class="memitem:ad4cc64bfcbc669eeb10725bcd8286f8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsample_1_1Sample.html">sample::Sample</a>&lt; T, Q &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsample_1_1SlicedSettedSample.html#ad4cc64bfcbc669eeb10725bcd8286f8f">trainingSet</a> ()</td></tr>
+<tr class="memdesc:ad4cc64bfcbc669eeb10725bcd8286f8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the training set which is constructed by the union of all disjoint subsets that are not the &lsquo;set&rsquo; one.  <a href="classsample_1_1SlicedSettedSample.html#ad4cc64bfcbc669eeb10725bcd8286f8f">More...</a><br /></td></tr>
 <tr class="separator:ad4cc64bfcbc669eeb10725bcd8286f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaff9a8a70c6810805e0dceb3402eb299"><td class="memItemLeft" align="right" valign="top"><a id="aaff9a8a70c6810805e0dceb3402eb299"></a>
-<a class="el" href="classsample_1_1Sample.html">sample::Sample</a>&lt; T, Q &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>validationSet</b> ()</td></tr>
+<tr class="memitem:aaff9a8a70c6810805e0dceb3402eb299"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsample_1_1Sample.html">sample::Sample</a>&lt; T, Q &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsample_1_1SlicedSettedSample.html#aaff9a8a70c6810805e0dceb3402eb299">validationSet</a> ()</td></tr>
+<tr class="memdesc:aaff9a8a70c6810805e0dceb3402eb299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the validation set which is constructed as the &lsquo;set&rsquo; sample.  <a href="classsample_1_1SlicedSettedSample.html#aaff9a8a70c6810805e0dceb3402eb299">More...</a><br /></td></tr>
 <tr class="separator:aaff9a8a70c6810805e0dceb3402eb299"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename T, typename Q, int k&gt;<br />
+class sample::SlicedSettedSample&lt; T, Q, k &gt;</h3>
+
+<p>A <a class="el" href="classsample_1_1SlicedSample.html" title="A sample that has been ‘sliced’ into k disjoint subsets.">SlicedSample</a> with a &lsquo;set&rsquo; subset. This is used for Cross-Validation. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a928f8ae9d71c66964d3f3e07db6b1ee2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a928f8ae9d71c66964d3f3e07db6b1ee2">&#9670;&nbsp;</a></span>SlicedSettedSample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Q , int k&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsample_1_1SlicedSettedSample.html">sample::SlicedSettedSample</a>&lt; T, Q, k &gt;::<a class="el" href="classsample_1_1SlicedSettedSample.html">SlicedSettedSample</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsample_1_1Sample.html">Sample</a>&lt; T, Q &gt; &amp;&#160;</td>
+          <td class="paramname"><em>sample</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sample</td><td>The sample used to construct the <a class="el" href="classsample_1_1SlicedSettedSample.html" title="A SlicedSample with a ‘set’ subset. This is used for Cross-Validation.">SlicedSettedSample</a> </td></tr>
+    <tr><td class="paramname">s</td><td>An integer representing the index of the &lsquo;set&rsquo; subsets </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad4cc64bfcbc669eeb10725bcd8286f8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4cc64bfcbc669eeb10725bcd8286f8f">&#9670;&nbsp;</a></span>trainingSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Q , int k&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsample_1_1Sample.html">sample::Sample</a>&lt;T, Q&gt; <a class="el" href="classsample_1_1SlicedSettedSample.html">sample::SlicedSettedSample</a>&lt; T, Q, k &gt;::trainingSet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the training set which is constructed by the union of all disjoint subsets that are not the &lsquo;set&rsquo; one. </p>
+<dl class="section return"><dt>Returns</dt><dd>A sample representing the training set </dd></dl>
+
+</div>
+</div>
+<a id="aaff9a8a70c6810805e0dceb3402eb299"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaff9a8a70c6810805e0dceb3402eb299">&#9670;&nbsp;</a></span>validationSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Q , int k&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsample_1_1Sample.html">sample::Sample</a>&lt;T, Q&gt; <a class="el" href="classsample_1_1SlicedSettedSample.html">sample::SlicedSettedSample</a>&lt; T, Q, k &gt;::validationSet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the validation set which is constructed as the &lsquo;set&rsquo; sample. </p>
+<dl class="section return"><dt>Returns</dt><dd>A sample representing the validation set </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/edoardo/cl/supl/include/Input/<a class="el" href="Sample_8h_source.html">Sample.h</a></li>
 </ul>

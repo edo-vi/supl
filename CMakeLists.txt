@@ -10,7 +10,7 @@ add_library(supl
         include/Input/Instance.h
         include/Input/Sample.h
         include/Learner/Parameter.h
-        include/Cross-validation/CrossValidation.cpp include/Cross-validation/CrossValidation.h
+        include/Cross-validation/CrossValidation.h
         deps/rapidcsv.h
         include/Learner/Learner.h
         include/Loss/LossFunction.h

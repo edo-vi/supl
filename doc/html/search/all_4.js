@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_5b_5d_14',['operator[]',['../classsample_1_1Sample.html#a14f8489acdcf1b00bdb66a13e8a43d22',1,'sample::Sample']]]
+  ['factor_7',['factor',['../classinput_1_1Instance.html#a7b204728d21dcb2d82f32ffe6b312fef',1,'input::Instance']]]
 ];

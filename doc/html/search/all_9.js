@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zerooneloss_32',['ZeroOneLoss',['../classloss_1_1ZeroOneLoss.html',1,'loss']]]
+  ['operator_5b_5d_25',['operator[]',['../classsample_1_1Sample.html#a14f8489acdcf1b00bdb66a13e8a43d22',1,'sample::Sample']]]
 ];

@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['sample_21',['Sample',['../classsample_1_1Sample.html',1,'sample::Sample&lt; T, Q &gt;'],['../namespacesample.html',1,'sample'],['../classsample_1_1Sample.html#af4c3ab39d0a70fd90e15230fb1203146',1,'sample::Sample::Sample(const std::vector&lt; LabeledInstance&lt; T, Q &gt;&gt; &amp;s)'],['../classsample_1_1Sample.html#a74cfc48975805f21ae86ca653110f5e9',1,'sample::Sample::Sample(const Sample&lt; T, Q &gt; &amp;sample)']]],
-  ['sample_2eh_22',['Sample.h',['../Sample_8h.html',1,'']]],
-  ['size_23',['size',['../classsample_1_1Sample.html#af7f0866a15073a21f67f76f6fc821143',1,'sample::Sample::size()'],['../classparameter_1_1ParameterSet.html#af82b8d8ab7797ab020158ab5a131c9e8',1,'parameter::ParameterSet::size()']]],
-  ['slicedsample_24',['SlicedSample',['../classsample_1_1SlicedSample.html',1,'sample']]],
-  ['slicedsettedsample_25',['SlicedSettedSample',['../classsample_1_1SlicedSettedSample.html',1,'sample']]],
-  ['squaredloss_26',['SquaredLoss',['../classloss_1_1SquaredLoss.html',1,'loss']]]
+  ['input_10',['input',['../namespaceinput.html',1,'']]],
+  ['instance_11',['Instance',['../classinput_1_1Instance.html',1,'input::Instance&lt; T &gt;'],['../classinput_1_1LabeledInstance.html#adf24aa68dad403142e9ee3629f9dd9df',1,'input::LabeledInstance::instance()'],['../classinput_1_1Instance.html#a0910bf5cafed3d8043c64abebda2f61b',1,'input::Instance::Instance(const std::vector&lt; T &gt; &amp;input)'],['../classinput_1_1Instance.html#a1668bf534fce0f1bcff75ce97be65f1d',1,'input::Instance::Instance(T input[], int64_t size)']]],
+  ['instance_2eh_12',['Instance.h',['../Instance_8h.html',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['knearest_50',['knearest',['../namespaceknearest.html',1,'']]]
+  ['crossvalidation_67',['crossvalidation',['../namespacecrossvalidation.html',1,'']]]
 ];

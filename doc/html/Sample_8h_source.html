@@ -81,7 +81,7 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span>    <span class="comment">//shuffle</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="namespacesample.html">   22</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesample.html">sample</a> {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">using namespace </span>input;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">using namespace </span><a class="code" href="namespaceinput.html">input</a>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Q&gt;</div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structsample_1_1ValidationSample.html">   26</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structsample_1_1ValidationSample.html">ValidationSample</a>;</div>
@@ -93,158 +93,163 @@ $(function() {
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classsample_1_1Sample.html#a74cfc48975805f21ae86ca653110f5e9">   35</a></span>&#160;        <a class="code" href="classsample_1_1Sample.html#a74cfc48975805f21ae86ca653110f5e9">Sample</a>(<span class="keyword">const</span> <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a>&amp; <a class="code" href="namespacesample.html">sample</a>) :</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                _arr(<a class="code" href="namespacesample.html">sample</a>._arr)</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                {}</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classsample_1_1Sample.html#af7f0866a15073a21f67f76f6fc821143">   39</a></span>&#160;        int64_t <a class="code" href="classsample_1_1Sample.html#af7f0866a15073a21f67f76f6fc821143">size</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">return</span> int64_t{_arr.size()};</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        };</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">        LabeledInstance&lt;T, Q&gt; randomPoint() {</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">            std::uniform_int_distribution&lt;unsigned long&gt; distr(0, _arr.size());</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">            return _arr[distr(_gen)];</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">        };</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">        std::vector&lt;LabeledInstance&lt;T, Q&gt;&gt; randomPoints(int64_t n) {</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">            std::vector&lt;LabeledInstance&lt;T, Q&gt;&gt; v{};</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">            for (int64_t i = 0; i &lt; n; i++) {</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">                v.push_back(randomPoint());</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">            }</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">            return v;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">        };</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">        std::vector&lt;LabeledInstance&lt;T, Q&gt;&gt; randomPointsNoReplacement(int64_t n) {</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">            std::vector&lt;LabeledInstance&lt;T, Q&gt;&gt; v{};</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">            std::sample(_arr.begin(), _arr.end(), std::back_inserter(v), n, _gen);</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">            return v;</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">        };</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classsample_1_1Sample.html#a14f8489acdcf1b00bdb66a13e8a43d22">   61</a></span>&#160;        <a class="code" href="classinput_1_1LabeledInstance.html">LabeledInstance&lt;T, Q&gt;</a> <a class="code" href="classsample_1_1Sample.html#a14f8489acdcf1b00bdb66a13e8a43d22">operator[]</a>(int64_t index)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span> _arr[index];</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="classinput_1_1LabeledInstance.html">LabeledInstance&lt;T, Q&gt;</a> begin() {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> _arr.begin();</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classsample_1_1Sample.html#af7f0866a15073a21f67f76f6fc821143">   40</a></span>&#160;        int64_t <a class="code" href="classsample_1_1Sample.html#af7f0866a15073a21f67f76f6fc821143">size</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">return</span> int64_t{_arr.size()};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        };</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">/*</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">        LabeledInstance&lt;T, Q&gt; randomPoint() {</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">            std::uniform_int_distribution&lt;unsigned long&gt; distr(0, _arr.size());</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">            return _arr[distr(_gen)];</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">        };</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">        std::vector&lt;LabeledInstance&lt;T, Q&gt;&gt; randomPoints(int64_t n) {</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">            std::vector&lt;LabeledInstance&lt;T, Q&gt;&gt; v{};</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">            for (int64_t i = 0; i &lt; n; i++) {</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">                v.push_back(randomPoint());</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">            }</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">            return v;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">        };</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">        std::vector&lt;LabeledInstance&lt;T, Q&gt;&gt; randomPointsNoReplacement(int64_t n) {</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">            std::vector&lt;LabeledInstance&lt;T, Q&gt;&gt; v{};</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">            std::sample(_arr.begin(), _arr.end(), std::back_inserter(v), n, _gen);</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">            return v;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">        };</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">        */</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classsample_1_1Sample.html#a14f8489acdcf1b00bdb66a13e8a43d22">   64</a></span>&#160;        <a class="code" href="classinput_1_1LabeledInstance.html">LabeledInstance&lt;T, Q&gt;</a> <a class="code" href="classsample_1_1Sample.html#a14f8489acdcf1b00bdb66a13e8a43d22">operator[]</a>(int64_t index)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> _arr[index];</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="classinput_1_1LabeledInstance.html">LabeledInstance&lt;T, Q&gt;</a> end() {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">return</span> _arr.end();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        ValidationSample&lt;T, Q&gt; split(int64_t k) {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            assert (k &lt; size());</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keyword">auto</span> vs = ValidationSample&lt;T, Q&gt;();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            vs.test = Sample&lt;T, Q&gt;(std::vector&lt;<a class="code" href="classinput_1_1LabeledInstance.html">LabeledInstance&lt;T, Q&gt;</a>&gt;(_arr.begin(), _arr.begin() + k));</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            vs.training = Sample&lt;T, Q&gt;(std::vector&lt;<a class="code" href="classinput_1_1LabeledInstance.html">LabeledInstance&lt;T, Q&gt;</a>&gt;(_arr.begin() + k, _arr.begin() + _arr.size() - 1));</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">return</span> vs;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        };</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">void</span> shuffle() {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            std::random_device rdev{};</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            std::mt19937 gen{rdev()};</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            std::shuffle(_arr.begin(), _arr.end(), gen);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        std::vector&lt;LabeledInstance&lt;T, Q&gt;&gt; _arr;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">//private:</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="comment">//std::random_device _rdev{};</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="comment">//std::mt19937 _gen{_rdev()};</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    };</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Q&gt;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    Sample&lt;T, Q&gt; sampleFromCsv(<span class="keyword">const</span> std::string&amp; filename) {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        std::vector&lt;LabeledInstance&lt;T, Q&gt;&gt; inputs{};</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        rapidcsv::Document doc(filename, rapidcsv::LabelParams(-1, -1));</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keyword">auto</span> rows = doc.GetRowCount();</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keyword">auto</span> columns = doc.GetColumnCount();</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">for</span> (int64_t i = 0; i &lt; rows; i++) {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            T data[columns-1]{};</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            int64_t j = 0;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keywordflow">for</span> (; j &lt; columns-1; j++) {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                data[j] = doc.GetCell&lt;T&gt;(j,i);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            }</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classsample_1_1Sample.html#a18c41717485ca4b82af0c367b7d55420">   69</a></span>&#160;        <a class="code" href="classinput_1_1LabeledInstance.html">LabeledInstance&lt;T, Q&gt;</a> <a class="code" href="classsample_1_1Sample.html#a18c41717485ca4b82af0c367b7d55420">begin</a>() {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">return</span> _arr.begin();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classsample_1_1Sample.html#a44b27386abc7e795decddadfdc29c061">   74</a></span>&#160;        <a class="code" href="classinput_1_1LabeledInstance.html">LabeledInstance&lt;T, Q&gt;</a> <a class="code" href="classsample_1_1Sample.html#a44b27386abc7e795decddadfdc29c061">end</a>() {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">return</span> _arr.end();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classsample_1_1Sample.html#a6c954d8e0cc77de2465a795b2d3a4922">   80</a></span>&#160;        <a class="code" href="structsample_1_1ValidationSample.html">ValidationSample&lt;T, Q&gt;</a> <a class="code" href="classsample_1_1Sample.html#a6c954d8e0cc77de2465a795b2d3a4922">split</a>(int64_t k) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            assert (k &lt; size());</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keyword">auto</span> vs = <a class="code" href="structsample_1_1ValidationSample.html">ValidationSample&lt;T, Q&gt;</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            vs.test = <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a>(std::vector&lt;<a class="code" href="classinput_1_1LabeledInstance.html">LabeledInstance&lt;T, Q&gt;</a>&gt;(_arr.begin(), _arr.begin() + k));</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            vs.training = <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a>(std::vector&lt;<a class="code" href="classinput_1_1LabeledInstance.html">LabeledInstance&lt;T, Q&gt;</a>&gt;(_arr.begin() + k, _arr.begin() + _arr.size() - 1));</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordflow">return</span> vs;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        };</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classsample_1_1Sample.html#ad71e6e279442a101bc177f43569f6d13">   89</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classsample_1_1Sample.html#ad71e6e279442a101bc177f43569f6d13">shuffle</a>() {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            std::random_device rdev{};</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            std::mt19937 gen{rdev()};</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            std::shuffle(_arr.begin(), _arr.end(), gen);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        std::vector&lt;LabeledInstance&lt;T, Q&gt;&gt; _arr;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">//private:</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="comment">//std::random_device _rdev{};</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="comment">//std::mt19937 _gen{_rdev()};</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    };</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Q&gt;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="namespacesample.html#a1181091e8ea01e256bfb72b4cae6657a">  107</a></span>&#160;    <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a> <a class="code" href="namespacesample.html#a1181091e8ea01e256bfb72b4cae6657a">sampleFromCsv</a>(<span class="keyword">const</span> std::string&amp; filename) {</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            Q label = doc.GetCell&lt;Q&gt;(j,i);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            inputs.push_back(<a class="code" href="classinput_1_1LabeledInstance.html">LabeledInstance&lt;T, Q&gt;</a>(data, columns-1, label));</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">return</span> Sample&lt;T, Q&gt;(inputs);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    };</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Q, <span class="keywordtype">int</span> k&gt;</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classsample_1_1SlicedSettedSample.html">  116</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classsample_1_1SlicedSettedSample.html">SlicedSettedSample</a>;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Q, <span class="keywordtype">int</span> k&gt;</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classsample_1_1SlicedSample.html">  119</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classsample_1_1SlicedSample.html">SlicedSample</a> {</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <a class="code" href="classsample_1_1SlicedSample.html">SlicedSample</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classsample_1_1SlicedSample.html">SlicedSample</a>(<span class="keyword">const</span> <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a>&amp; <a class="code" href="namespacesample.html">sample</a>) :</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        _sample(<a class="code" href="namespacesample.html">sample</a>)</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        {};</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="classsample_1_1SlicedSettedSample.html">SlicedSettedSample&lt;T, Q, k&gt;</a> set(<span class="keywordtype">int</span> s) {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classsample_1_1SlicedSettedSample.html">SlicedSettedSample&lt;T, Q, k&gt;</a>(_sample, s);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a> _sample;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        int64_t _num = _sample.<a class="code" href="classsample_1_1Sample.html#af7f0866a15073a21f67f76f6fc821143">size</a>() / k;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    };</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Q, <span class="keywordtype">int</span> k&gt;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">class </span><a class="code" href="classsample_1_1SlicedSettedSample.html">SlicedSettedSample</a> : <span class="keyword">public</span> <a class="code" href="classsample_1_1SlicedSample.html">SlicedSample</a>&lt;T, Q, k&gt; {</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <a class="code" href="classsample_1_1SlicedSettedSample.html">SlicedSettedSample</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classsample_1_1SlicedSettedSample.html">SlicedSettedSample</a>(<span class="keyword">const</span> <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a>&amp; <a class="code" href="namespacesample.html">sample</a>, <span class="keywordtype">int</span> s) :</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                <a class="code" href="classsample_1_1SlicedSample.html">SlicedSample</a>&lt;T, Q, k&gt;{<a class="code" href="namespacesample.html">sample</a>},</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                _s(s) {</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            assert(_s &lt; k &amp;&amp; _s &gt;= 0);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            _startidx = s * this-&gt;_num;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            _endidx = s == k - 1 ? this-&gt;_sample.size()-1 : _startidx + this-&gt;_num - 1; <span class="comment">//inclusive</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        }</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <a class="code" href="classsample_1_1Sample.html">sample::Sample&lt;T, Q&gt;</a> trainingSet() {</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <span class="keyword">auto</span> training = std::vector&lt;input::LabeledInstance&lt;T, Q&gt;&gt;();</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <span class="keywordflow">for</span> (int64_t i = 0; i &lt; this-&gt;_sample.size(); i++) {</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                <span class="keywordflow">if</span> (i &lt; _startidx || i &gt; _endidx) {</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                    training.push_back(this-&gt;_sample[i]);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                };</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            }</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <span class="keywordflow">return</span> Sample&lt;T, Q&gt;(training);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        };</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <a class="code" href="classsample_1_1Sample.html">sample::Sample&lt;T, Q&gt;</a> validationSet() {</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            <span class="keyword">auto</span> validation = std::vector&lt;input::LabeledInstance&lt;T, Q&gt;&gt;();</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="keywordflow">for</span> (int64_t i = 0; i &lt; this-&gt;_sample.size(); i++) {</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                <span class="keywordflow">if</span> (i &gt;= _startidx &amp;&amp; i &lt;= _endidx) {</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                    validation.push_back(this-&gt;_sample[i]);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                }</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            }</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            <span class="keywordflow">return</span> Sample&lt;T, Q&gt;(validation);</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        };</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordtype">int</span> _s{};</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        int64_t _startidx{};</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        int64_t _endidx{};</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    };</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Q&gt;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keyword">struct </span>ValidationSample {</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        Sample&lt;T, Q&gt; training;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        Sample&lt;T, Q&gt; test;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    };</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;};</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        std::vector&lt;LabeledInstance&lt;T, Q&gt;&gt; inputs{};</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        rapidcsv::Document doc(filename, rapidcsv::LabelParams(-1, -1));</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keyword">auto</span> rows = doc.GetRowCount();</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keyword">auto</span> columns = doc.GetColumnCount();</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">for</span> (int64_t i = 0; i &lt; rows; i++) {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            T data[columns-1]{};</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            int64_t j = 0;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">for</span> (; j &lt; columns-1; j++) {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                data[j] = doc.GetCell&lt;T&gt;(j,i);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            Q label = doc.GetCell&lt;Q&gt;(j,i);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            inputs.push_back(<a class="code" href="classinput_1_1LabeledInstance.html">LabeledInstance&lt;T, Q&gt;</a>(data, columns-1, label));</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a>(inputs);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    };</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Q, <span class="keywordtype">int</span> k&gt;</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classsample_1_1SlicedSettedSample.html">  131</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classsample_1_1SlicedSettedSample.html">SlicedSettedSample</a>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Q, <span class="keywordtype">int</span> k&gt;</div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="classsample_1_1SlicedSample.html">  134</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classsample_1_1SlicedSample.html">SlicedSample</a> {</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <a class="code" href="classsample_1_1SlicedSample.html">SlicedSample</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classsample_1_1SlicedSample.html#aaa7e45b8f8a4d964089a6ed4d8623eaf">  138</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classsample_1_1SlicedSample.html#aaa7e45b8f8a4d964089a6ed4d8623eaf">SlicedSample</a>(<span class="keyword">const</span> <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a>&amp; <a class="code" href="namespacesample.html">sample</a>) :</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        _sample(<a class="code" href="namespacesample.html">sample</a>)</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        {};</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="classsample_1_1SlicedSample.html#a6831b0383bcf7a815349bf646d778285">  143</a></span>&#160;        <a class="code" href="classsample_1_1SlicedSettedSample.html">SlicedSettedSample&lt;T, Q, k&gt;</a> <a class="code" href="classsample_1_1SlicedSample.html#a6831b0383bcf7a815349bf646d778285">set</a>(<span class="keywordtype">int</span> s) {</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classsample_1_1SlicedSettedSample.html">SlicedSettedSample&lt;T, Q, k&gt;</a>(_sample, s);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        }</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a> _sample;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        int64_t _num = _sample.<a class="code" href="classsample_1_1Sample.html#af7f0866a15073a21f67f76f6fc821143">size</a>() / k;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    };</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Q, <span class="keywordtype">int</span> k&gt;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">class </span>SlicedSettedSample : <span class="keyword">public</span> SlicedSample&lt;T, Q, k&gt; {</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        SlicedSettedSample() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="classsample_1_1SlicedSettedSample.html#a928f8ae9d71c66964d3f3e07db6b1ee2">  158</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classsample_1_1SlicedSettedSample.html#a928f8ae9d71c66964d3f3e07db6b1ee2">SlicedSettedSample</a>(<span class="keyword">const</span> <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a>&amp; <a class="code" href="namespacesample.html">sample</a>, <span class="keywordtype">int</span> s) :</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                <a class="code" href="classsample_1_1SlicedSample.html">SlicedSample</a>&lt;T, Q, k&gt;{<a class="code" href="namespacesample.html">sample</a>},</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                _s(s) {</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            assert(_s &lt; k &amp;&amp; _s &gt;= 0);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            _startidx = s * this-&gt;_num;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            _endidx = s == k - 1 ? this-&gt;_sample.<a class="code" href="classsample_1_1Sample.html#af7f0866a15073a21f67f76f6fc821143">size</a>()-1 : _startidx + this-&gt;_num - 1; <span class="comment">//inclusive</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        }</div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="classsample_1_1SlicedSettedSample.html#ad4cc64bfcbc669eeb10725bcd8286f8f">  167</a></span>&#160;        <a class="code" href="classsample_1_1Sample.html">sample::Sample&lt;T, Q&gt;</a> <a class="code" href="classsample_1_1SlicedSettedSample.html#ad4cc64bfcbc669eeb10725bcd8286f8f">trainingSet</a>() {</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            <span class="keyword">auto</span> training = std::vector&lt;input::LabeledInstance&lt;T, Q&gt;&gt;();</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keywordflow">for</span> (int64_t i = 0; i &lt; this-&gt;_sample.<a class="code" href="classsample_1_1Sample.html#af7f0866a15073a21f67f76f6fc821143">size</a>(); i++) {</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                <span class="keywordflow">if</span> (i &lt; _startidx || i &gt; _endidx) {</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                    training.push_back(this-&gt;_sample[i]);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                };</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            }</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a>(training);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        };</div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="classsample_1_1SlicedSettedSample.html#aaff9a8a70c6810805e0dceb3402eb299">  178</a></span>&#160;        <a class="code" href="classsample_1_1Sample.html">sample::Sample&lt;T, Q&gt;</a> <a class="code" href="classsample_1_1SlicedSettedSample.html#aaff9a8a70c6810805e0dceb3402eb299">validationSet</a>() {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            <span class="keyword">auto</span> validation = std::vector&lt;input::LabeledInstance&lt;T, Q&gt;&gt;();</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            <span class="keywordflow">for</span> (int64_t i = 0; i &lt; this-&gt;_sample.<a class="code" href="classsample_1_1Sample.html#af7f0866a15073a21f67f76f6fc821143">size</a>(); i++) {</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                <span class="keywordflow">if</span> (i &gt;= _startidx &amp;&amp; i &lt;= _endidx) {</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                    validation.push_back(this-&gt;_sample[i]);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                }</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            }</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classsample_1_1Sample.html">Sample&lt;T, Q&gt;</a>(validation);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        };</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordtype">int</span> _s{};</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        int64_t _startidx{};</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        int64_t _endidx{};</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    };</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Q&gt;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keyword">struct </span>ValidationSample {</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        Sample&lt;T, Q&gt; training;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        Sample&lt;T, Q&gt; test;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    };</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespaceinput_html"><div class="ttname"><a href="namespaceinput.html">input</a></div><div class="ttdoc">Namespace including all the definitions and implementations related to instances (input points) and l...</div><div class="ttdef"><b>Definition:</b> Instance.h:14</div></div>
+<div class="ttc" id="aclasssample_1_1Sample_html_a18c41717485ca4b82af0c367b7d55420"><div class="ttname"><a href="classsample_1_1Sample.html#a18c41717485ca4b82af0c367b7d55420">sample::Sample::begin</a></div><div class="ttdeci">LabeledInstance&lt; T, Q &gt; begin()</div><div class="ttdoc">Returns the first LabeledInstance in the sample.</div><div class="ttdef"><b>Definition:</b> Sample.h:69</div></div>
+<div class="ttc" id="aclasssample_1_1SlicedSample_html_aaa7e45b8f8a4d964089a6ed4d8623eaf"><div class="ttname"><a href="classsample_1_1SlicedSample.html#aaa7e45b8f8a4d964089a6ed4d8623eaf">sample::SlicedSample::SlicedSample</a></div><div class="ttdeci">SlicedSample(const Sample&lt; T, Q &gt; &amp;sample)</div><div class="ttdef"><b>Definition:</b> Sample.h:138</div></div>
+<div class="ttc" id="aclasssample_1_1SlicedSettedSample_html_aaff9a8a70c6810805e0dceb3402eb299"><div class="ttname"><a href="classsample_1_1SlicedSettedSample.html#aaff9a8a70c6810805e0dceb3402eb299">sample::SlicedSettedSample::validationSet</a></div><div class="ttdeci">sample::Sample&lt; T, Q &gt; validationSet()</div><div class="ttdoc">Returns the validation set which is constructed as the ‘set’ sample.</div><div class="ttdef"><b>Definition:</b> Sample.h:178</div></div>
 <div class="ttc" id="aclasssample_1_1Sample_html_a74cfc48975805f21ae86ca653110f5e9"><div class="ttname"><a href="classsample_1_1Sample.html#a74cfc48975805f21ae86ca653110f5e9">sample::Sample::Sample</a></div><div class="ttdeci">Sample(const Sample&lt; T, Q &gt; &amp;sample)</div><div class="ttdoc">@input sample Another sample of the same type used to construct a copy</div><div class="ttdef"><b>Definition:</b> Sample.h:35</div></div>
-<div class="ttc" id="astructsample_1_1ValidationSample_html"><div class="ttname"><a href="structsample_1_1ValidationSample.html">sample::ValidationSample</a></div><div class="ttdef"><b>Definition:</b> Sample.h:26</div></div>
+<div class="ttc" id="aclasssample_1_1Sample_html_a44b27386abc7e795decddadfdc29c061"><div class="ttname"><a href="classsample_1_1Sample.html#a44b27386abc7e795decddadfdc29c061">sample::Sample::end</a></div><div class="ttdeci">LabeledInstance&lt; T, Q &gt; end()</div><div class="ttdoc">Returns the last LabeledInstance in the sample.</div><div class="ttdef"><b>Definition:</b> Sample.h:74</div></div>
+<div class="ttc" id="astructsample_1_1ValidationSample_html"><div class="ttname"><a href="structsample_1_1ValidationSample.html">sample::ValidationSample</a></div><div class="ttdoc">Object aggregating a training set and a test set.</div><div class="ttdef"><b>Definition:</b> Sample.h:26</div></div>
+<div class="ttc" id="anamespacesample_html_a1181091e8ea01e256bfb72b4cae6657a"><div class="ttname"><a href="namespacesample.html#a1181091e8ea01e256bfb72b4cae6657a">sample::sampleFromCsv</a></div><div class="ttdeci">Sample&lt; T, Q &gt; sampleFromCsv(const std::string &amp;filename)</div><div class="ttdoc">Parse the CSV file with the given path and generates a sample from it. The file must have the followi...</div><div class="ttdef"><b>Definition:</b> Sample.h:107</div></div>
+<div class="ttc" id="aclasssample_1_1Sample_html_ad71e6e279442a101bc177f43569f6d13"><div class="ttname"><a href="classsample_1_1Sample.html#ad71e6e279442a101bc177f43569f6d13">sample::Sample::shuffle</a></div><div class="ttdeci">void shuffle()</div><div class="ttdoc">Randomly shuffle the sample.</div><div class="ttdef"><b>Definition:</b> Sample.h:89</div></div>
 <div class="ttc" id="aclasssample_1_1Sample_html"><div class="ttname"><a href="classsample_1_1Sample.html">sample::Sample</a></div><div class="ttdoc">A sample, i.e. a sequence of labeled data points.</div><div class="ttdef"><b>Definition:</b> Sample.h:29</div></div>
-<div class="ttc" id="aclasssample_1_1SlicedSettedSample_html"><div class="ttname"><a href="classsample_1_1SlicedSettedSample.html">sample::SlicedSettedSample</a></div><div class="ttdef"><b>Definition:</b> Sample.h:116</div></div>
+<div class="ttc" id="aclasssample_1_1SlicedSettedSample_html"><div class="ttname"><a href="classsample_1_1SlicedSettedSample.html">sample::SlicedSettedSample</a></div><div class="ttdoc">A SlicedSample with a ‘set’ subset. This is used for Cross-Validation.</div><div class="ttdef"><b>Definition:</b> Sample.h:131</div></div>
+<div class="ttc" id="aclasssample_1_1Sample_html_a6c954d8e0cc77de2465a795b2d3a4922"><div class="ttname"><a href="classsample_1_1Sample.html#a6c954d8e0cc77de2465a795b2d3a4922">sample::Sample::split</a></div><div class="ttdeci">ValidationSample&lt; T, Q &gt; split(int64_t k)</div><div class="ttdoc">Returns a validation sample with test sample of size k and training sample of size size()-k.</div><div class="ttdef"><b>Definition:</b> Sample.h:80</div></div>
+<div class="ttc" id="aclasssample_1_1SlicedSample_html_a6831b0383bcf7a815349bf646d778285"><div class="ttname"><a href="classsample_1_1SlicedSample.html#a6831b0383bcf7a815349bf646d778285">sample::SlicedSample::set</a></div><div class="ttdeci">SlicedSettedSample&lt; T, Q, k &gt; set(int s)</div><div class="ttdef"><b>Definition:</b> Sample.h:143</div></div>
 <div class="ttc" id="anamespacesample_html"><div class="ttname"><a href="namespacesample.html">sample</a></div><div class="ttdoc">Namespace containing all the definitions and implementations of classes representing samples of label...</div><div class="ttdef"><b>Definition:</b> Sample.h:22</div></div>
-<div class="ttc" id="aclasssample_1_1Sample_html_a14f8489acdcf1b00bdb66a13e8a43d22"><div class="ttname"><a href="classsample_1_1Sample.html#a14f8489acdcf1b00bdb66a13e8a43d22">sample::Sample::operator[]</a></div><div class="ttdeci">LabeledInstance&lt; T, Q &gt; operator[](int64_t index) const</div><div class="ttdef"><b>Definition:</b> Sample.h:61</div></div>
-<div class="ttc" id="aclasssample_1_1SlicedSample_html"><div class="ttname"><a href="classsample_1_1SlicedSample.html">sample::SlicedSample</a></div><div class="ttdef"><b>Definition:</b> Sample.h:119</div></div>
+<div class="ttc" id="aclasssample_1_1Sample_html_a14f8489acdcf1b00bdb66a13e8a43d22"><div class="ttname"><a href="classsample_1_1Sample.html#a14f8489acdcf1b00bdb66a13e8a43d22">sample::Sample::operator[]</a></div><div class="ttdeci">LabeledInstance&lt; T, Q &gt; operator[](int64_t index) const</div><div class="ttdoc">Get the LabeledInstance of the sample with index equal to the actual parameter.</div><div class="ttdef"><b>Definition:</b> Sample.h:64</div></div>
+<div class="ttc" id="aclasssample_1_1SlicedSample_html"><div class="ttname"><a href="classsample_1_1SlicedSample.html">sample::SlicedSample</a></div><div class="ttdoc">A sample that has been ‘sliced’ into k disjoint subsets.</div><div class="ttdef"><b>Definition:</b> Sample.h:134</div></div>
 <div class="ttc" id="aclasssample_1_1Sample_html_af4c3ab39d0a70fd90e15230fb1203146"><div class="ttname"><a href="classsample_1_1Sample.html#af4c3ab39d0a70fd90e15230fb1203146">sample::Sample::Sample</a></div><div class="ttdeci">Sample(const std::vector&lt; LabeledInstance&lt; T, Q &gt;&gt; &amp;s)</div><div class="ttdoc">@input s Variable-sized array of labeled instances whose datapoints are of type T and its labels of t...</div><div class="ttdef"><b>Definition:</b> Sample.h:33</div></div>
-<div class="ttc" id="aclassinput_1_1LabeledInstance_html"><div class="ttname"><a href="classinput_1_1LabeledInstance.html">input::LabeledInstance</a></div><div class="ttdef"><b>Definition:</b> Instance.h:48</div></div>
+<div class="ttc" id="aclasssample_1_1SlicedSettedSample_html_ad4cc64bfcbc669eeb10725bcd8286f8f"><div class="ttname"><a href="classsample_1_1SlicedSettedSample.html#ad4cc64bfcbc669eeb10725bcd8286f8f">sample::SlicedSettedSample::trainingSet</a></div><div class="ttdeci">sample::Sample&lt; T, Q &gt; trainingSet()</div><div class="ttdoc">Returns the training set which is constructed by the union of all disjoint subsets that are not the ‘...</div><div class="ttdef"><b>Definition:</b> Sample.h:167</div></div>
+<div class="ttc" id="aclassinput_1_1LabeledInstance_html"><div class="ttname"><a href="classinput_1_1LabeledInstance.html">input::LabeledInstance</a></div><div class="ttdoc">An instance tagged with a label. An element used to construct a sample.</div><div class="ttdef"><b>Definition:</b> Instance.h:61</div></div>
+<div class="ttc" id="aclasssample_1_1SlicedSettedSample_html_a928f8ae9d71c66964d3f3e07db6b1ee2"><div class="ttname"><a href="classsample_1_1SlicedSettedSample.html#a928f8ae9d71c66964d3f3e07db6b1ee2">sample::SlicedSettedSample::SlicedSettedSample</a></div><div class="ttdeci">SlicedSettedSample(const Sample&lt; T, Q &gt; &amp;sample, int s)</div><div class="ttdef"><b>Definition:</b> Sample.h:158</div></div>
 <div class="ttc" id="aInstance_8h_html"><div class="ttname"><a href="Instance_8h.html">Instance.h</a></div></div>
-<div class="ttc" id="aclasssample_1_1Sample_html_af7f0866a15073a21f67f76f6fc821143"><div class="ttname"><a href="classsample_1_1Sample.html#af7f0866a15073a21f67f76f6fc821143">sample::Sample::size</a></div><div class="ttdeci">int64_t size() const</div><div class="ttdef"><b>Definition:</b> Sample.h:39</div></div>
+<div class="ttc" id="aclasssample_1_1Sample_html_af7f0866a15073a21f67f76f6fc821143"><div class="ttname"><a href="classsample_1_1Sample.html#af7f0866a15073a21f67f76f6fc821143">sample::Sample::size</a></div><div class="ttdeci">int64_t size() const</div><div class="ttdoc">Returns the size of the sample.</div><div class="ttdef"><b>Definition:</b> Sample.h:40</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
