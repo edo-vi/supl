@@ -4,7 +4,7 @@
 ///@Version: 0.1
 ///@File: K-Nearest Neighbors example
 
-#include "library.h" //Sample
+#include "supl.h" //Sample
 
 #include <iostream>     //cout
 

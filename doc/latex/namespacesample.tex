@@ -15,7 +15,8 @@ class \mbox{\hyperlink{classsample_1_1SlicedSample}{Sliced\+Sample}}
 class \mbox{\hyperlink{classsample_1_1SlicedSettedSample}{Sliced\+Setted\+Sample}}
 \begin{DoxyCompactList}\small\item\em A \mbox{\hyperlink{classsample_1_1SlicedSample}{Sliced\+Sample}} with a `set' subset. This is used for Cross-\/\+Validation. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structsample_1_1ValidationSample}{Validation\+Sample}}
-\begin{DoxyCompactList}\small\item\em Object aggregating a training set and a test set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Object aggregating a training set and a test set ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -40,6 +41,10 @@ Parse the C\+SV file with the given path and generates a sample from it. The fil
 
 
 \begin{DoxyParams}{Parameters}
+{\em T} & The type of the elements making up the instances of the sample \\
+\hline
+{\em Q} & The type of the labels of the instances \\
+\hline
 {\em filename} & String encoding the path of the C\+SV file that must be parsed \\
 \hline
 \end{DoxyParams}

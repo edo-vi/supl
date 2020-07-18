@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(include)
 
 add_library(supl
-        include/library.h
+        include/supl.h
         include/Input/Instance.h
         include/Input/Sample.h
         include/Learner/Parameter.h

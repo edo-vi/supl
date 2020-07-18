@@ -118,7 +118,10 @@ template&lt;typename T , typename Q , typename P , int k&gt; </div>
 <p>Cross-validates the learner on the passed sample by testing all the parameters in the parameter set. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">T</td><td></td></tr>
+    <tr><td class="paramname">T</td><td>The type of the instances (data vectors) </td></tr>
+    <tr><td class="paramname">Q</td><td>The type of the labels </td></tr>
+    <tr><td class="paramname">P</td><td>The type of the parameters of the learner </td></tr>
+    <tr><td class="paramname">k</td><td>The number of disjoint subsets in which the sample is divided </td></tr>
     <tr><td class="paramname">learner</td><td>A Learner that will train and validate on the sample </td></tr>
     <tr><td class="paramname">paramset</td><td>A ParameterSet whose elements are used with the learner to calculate its error on the validation sample and from which the &lsquo;best&rsquo; parameter is chosen </td></tr>
     <tr><td class="paramname">sample</td><td>The sample used to cross-validate the learner </td></tr>
