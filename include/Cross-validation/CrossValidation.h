@@ -1,8 +1,7 @@
-///@file CrossValidation.h
-///@author: ***REMOVED***
-///@Date: July 2020
-///@Version: 0.1
-///@File: Definition and implementation of the function crossValidate
+///@author ***REMOVED***
+///@date July 2020
+///@version 0.1
+///@file CrossValidation.h Definition and implementation of the function crossValidate
 #pragma once
 
 #include "../Learner/Parameter.h" //Parameter, ParameterSet

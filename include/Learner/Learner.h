@@ -1,8 +1,7 @@
+///@author ***REMOVED***
+///@date July 2020
+///@version 0.1
 ///@file Learner.h
-///@author: ***REMOVED***
-///@Date: July 2020
-///@Version: 0.1
-///@File: Definition and implementation of the interface Learner
 #pragma once
 
 #include "Input/Sample.h"        //Sample

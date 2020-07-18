@@ -1,8 +1,7 @@
-///@file exampleCNN.cpp
-///@Author: ***REMOVED***
-///@Date: July 2020
-///@Version: 0.1
-///@File: K-Nearest Neighbors example
+///@author ***REMOVED***
+///@date July 2020
+///@version 0.1
+///@file exampleKNN.cpp 
 
 #include "supl.h" //Sample
 

@@ -1,8 +1,7 @@
+///@author ***REMOVED***
+///@date July 2020
+///@version 0.1
 ///@file Parameter.h
-///@author: ***REMOVED***
-///@Date: July 2020
-///@Version: 0.1
-///@File: Definition and implementation of the Parameter class and related objects
 
 #pragma once
 

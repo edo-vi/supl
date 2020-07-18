@@ -1,8 +1,7 @@
+///@author ***REMOVED***
+///@date July 2020
+///@version 0.1
 ///@file KNearestNeighbors.h
-///@author: ***REMOVED***
-///@Date: July 2020
-///@Version: 0.1
-///@File: Definition and implementation of the K Nearest Neighbors learner, concrete implementation of Learner
 
 #pragma once
 

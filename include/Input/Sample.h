@@ -1,9 +1,7 @@
+///@author ***REMOVED***
+///@date July 2020
+///@version 0.1
 ///@file Sample.h
-///@author: ***REMOVED***
-///@Date: July 2020
-///@Version: 0.1
-///@File: Definition and implementation of Sample, ValidationSample, SlicedSample and SlicedSettedSample; it also contains
-///the implementation of the function sampleFromCsv.
 #pragma once
 
 #include "Instance.h"               //LabeledInstance

@@ -1,8 +1,7 @@
-///@file library.h
-///@Author: ***REMOVED***
-///@Date: July 2020
-///@Version: 0.1
-///@File: Definition and implementation of the interface Learner
+///@author ***REMOVED***
+///@date July 2020
+///@version 0.1
+///@file supl.h
 
 #pragma once
 
