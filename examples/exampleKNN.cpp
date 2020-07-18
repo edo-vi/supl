@@ -1,7 +1,7 @@
 ///@author ***REMOVED***
 ///@date July 2020
 ///@version 0.1
-///@file exampleKNN.cpp 
+///@file exampleKNN.cpp
 
 #include "supl.h" //Sample
 
