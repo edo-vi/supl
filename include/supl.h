@@ -6,11 +6,10 @@
 #pragma once
 
 /// All the relevant public headers
-#include "Learner/Parameter.h"
-#include "Learner/Learner.h"
-#include "Learner/Classification/KNearestNeighbors/KNearestNeighbors.h"
-#include "Input/Sample.h"
-#include "Input/Instance.h"
-#include "Loss/LossFunction.h"
 #include "Cross-validation/CrossValidation.h"
-
+#include "Input/Instance.h"
+#include "Input/Sample.h"
+#include "Learner/Classification/KNearestNeighbors/KNearestNeighbors.h"
+#include "Learner/Learner.h"
+#include "Learner/Parameter.h"
+#include "Loss/LossFunction.h"
