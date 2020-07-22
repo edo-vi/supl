@@ -19,6 +19,7 @@ add_library(supl
 set_target_properties(supl PROPERTIES LINKER_LANGUAGE CXX)
 
 add_compile_options(-Wall -Wextra -Wpedantic -Werror)
+
 add_executable(exampleKNN examples/exampleKNN.cpp)
 
 
