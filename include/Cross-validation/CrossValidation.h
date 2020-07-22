@@ -43,5 +43,5 @@ namespace crossvalidation {
             }
         }
         return p;
-    };
+    }
 }

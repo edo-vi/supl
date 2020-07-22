@@ -11,6 +11,7 @@
 
 #include <memory>       //unique_ptr
 #include <cstdio>       //cout
+#include <cstdint>      //uint64_t
 
 ///@brief Namespace containing all the definitions and implementations related to the abstract Learner interface
 namespace learner {
@@ -38,9 +39,9 @@ namespace learner {
         double test(const Sample<T, Q>& sample) const {
             auto l = lossFunction();
             double v{};
-            for (int64_t i = 0; i < sample.size(); i++) {
+            for (uint64_t i = 0; i < sample.size(); i++) {
                 auto samplepoint = sample[i];
-                v += l->loss(samplepoint.instance(), samplepoint.label(), predict(samplepoint));
+                v += l->loss(samplepoint.label(), predict(samplepoint));
             }
             return v/sample.size();
         };
@@ -54,12 +55,12 @@ namespace learner {
             auto l = lossFunction();
             double v{};
             std::cout << "label\tprediction\n";
-            for (int64_t i = 0; i < sample.size(); i++) {
+            for (uint64_t i = 0; i < sample.size(); i++) {
                 auto samplepoint = sample[i];
                 auto instance = samplepoint.instance();
                 auto label = samplepoint.label();
                 auto prediction = predict(samplepoint);
-                v += l->loss(instance, label, prediction);
+                v += l->loss(label, prediction);
                 std::string final = "";
                 if constexpr(std::is_same<Q, std::string>::value) {
                     final += label + "\t" + prediction;

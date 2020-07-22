@@ -15,7 +15,7 @@
 #include <type_traits> //is_arithmetic
 #include <cassert>     //assert, static_assert
 #include <vector>      //vector
-#include <cstdint>     //int64_t
+#include <cstdint>     //int64_t, uint64_t
 #include <memory>      //unique_ptr
 
 ///@brief Namespace containing the K nearest neighbor algorithm
@@ -26,12 +26,12 @@ namespace knearest {
     ///@param Q The type of the labels of the instances
     ///@brief K-Nearest Neighbors algorithm implementation
     template <typename T, typename Q>
-    class KNearestNeighbors : public Learner<T, Q, int> {
+    class KNearestNeighbors : public Learner<T, Q, uint> {
     public:
         KNearestNeighbors() = default;
         ///@param k The hyperparameter that fixes the number of instances (based on distances) consulted to predict the
         ///class of an input instance
-        explicit KNearestNeighbors(int k) : _k(Parameter<int>(k)) {
+        explicit KNearestNeighbors(uint k) : _k(Parameter<uint>(k)) {
             static_assert(std::is_arithmetic<T>());
         };
         ~KNearestNeighbors() override = default;
@@ -39,7 +39,7 @@ namespace knearest {
         ///@param param Integer encoding *k*, which is the number of instances (the closest ones) whose labels are
         ///used to classify an input instance
         ///@brief Simply sets up the class' instance, no calculations are done at this stage
-        void train(const Sample<T, Q> &sample, Parameter<int> param) override {
+        void train(const Sample<T, Q> &sample, Parameter<uint> param) override {
             this->_sample = sample; //copy the sample
             this->_k = param;
         }
@@ -52,7 +52,7 @@ namespace knearest {
         }
         ///@return The parameter *k*, the number of instances who votes for the prediciton
         ///@brief Simply returns the parameter *k*
-        Parameter<int> hyperparameter() const override {
+        Parameter<uint> hyperparameter() const override {
             return this->_k;
         }
         ///@param input An instance of type T (vector of elements of type T)
@@ -68,7 +68,7 @@ namespace knearest {
             };
             std::priority_queue<pair_dq, std::vector<pair_dq>, decltype(compare)> pq(compare);
 
-            for (int64_t i = 0; i < this->_sample.size(); i++) {
+            for (uint64_t i = 0; i < this->_sample.size(); i++) {
                 if (i < this->_k.value()) pq.push(pair_dq(input.euclidean(this->_sample[i]), this->_sample[i].label()));
                 else {
                     auto d = input.euclidean(this->_sample[i]);
@@ -89,7 +89,7 @@ namespace knearest {
             Q lab{arr[0]};
             float max{-INFINITY};
             int count{1};
-            for (auto i = 0; i < arr.size(); i++) {
+            for (uint64_t i = 0; i < arr.size(); i++) {
                 if (arr[i] == arr[i+1]) {
                     count++;
                 }
@@ -109,7 +109,7 @@ namespace knearest {
             return std::unique_ptr<loss::LossFunction<T, Q>>(new loss::ZeroOneLoss<T, Q>);
         }
     private:
-        Parameter<int> _k;
+        Parameter<uint> _k;
         Sample<T, Q> _sample{};
     };
 }
