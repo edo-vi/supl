@@ -1,0 +1,6 @@
+/home/edoardo/cl/supl/build/CMakeFiles/tests.dir
+/home/edoardo/cl/supl/build/CMakeFiles/edit_cache.dir
+/home/edoardo/cl/supl/build/CMakeFiles/exampleKNN.dir
+/home/edoardo/cl/supl/build/CMakeFiles/rebuild_cache.dir
+/home/edoardo/cl/supl/build/CMakeFiles/supl.dir
+/home/edoardo/cl/supl/build/CMakeFiles/doc.dir

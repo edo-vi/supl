@@ -20,8 +20,8 @@
 
 ///@brief Namespace containing the K nearest neighbor algorithm
 namespace knearest {
-using namespace learner;
-using namespace std;
+    using namespace learner;
+    using namespace std;
 ///@param T The type of the elements making up the instances of the samples used
 ///by the learner
 ///@param Q The type of the labels of the instances
