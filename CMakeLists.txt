@@ -20,11 +20,21 @@ set_target_properties(supl PROPERTIES LINKER_LANGUAGE CXX)
 
 add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 
+find_package(Doxygen)
 
-add_custom_target(doc # makefile target name
-        COMMAND ../doc/doxygen ../doxyconfig
-        COMMAND mv html ../doc # real command
+if (DOXYGEN_FOUND)
+    add_custom_target(doc
+        COMMAND rm -rf ../doc/html
+        COMMAND doxygen ../doxyconfig
+        COMMAND mv html ../doc
         COMMENT "Generate documentation")
+else()
+    add_custom_target(doc
+        COMMAND rm -rf ../doc/html
+        COMMAND ../doc/doxygen ../doxyconfig
+        COMMAND mv html ../doc
+        COMMENT "Generate documentation")
+endif()
 
 add_executable(exampleKNN examples/exampleKNN.cpp)
 

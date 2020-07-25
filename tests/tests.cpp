@@ -4,11 +4,32 @@
 #define CATCH_CONFIG_MAIN
 
 #include "../deps/catch.hpp"
+#include "Input/Instance.h"
 #include "Input/Sample.h"
+#include "Learner/Classification/KNearestNeighbors/KNearestNeighbors.h"
 
-TEST_CASE( "Samples are correctly parsed", "[sampleFromCSV]" ) {
-    using namespace std;
-    auto sample = sample::sampleFromCsv<double, string>("../tests/datatest.txt");
+auto s = sample::sampleFromCsv<double, std::string>("../tests/neardouble.csv");
 
-    REQUIRE(sample.size() == 3);
+TEST_CASE("Samples are correctly parsed", "[sampleFromCSV]") {
+
+  REQUIRE(s.size() == 2);
+  REQUIRE(s[0].instance().factor(1) == -2);
+  REQUIRE_THROWS(
+      sample::sampleFromCsv<double, std::string>("../tests/missingvalue.csv"));
+  REQUIRE_THROWS(
+      sample::sampleFromCsv<double, std::string>("../tests/witheader.csv"));
+}
+
+TEST_CASE("KNN works correctly", "[KNN]") {
+  auto l = knearest::KNearestNeighbors<double, std::string>(1);
+  l.train(s);
+
+  int counter = 0;
+  auto instance = input::Instance<double>({0, 0, 1});
+  for (int i = 0; i < 100000; i++) {
+    if (l.predict(instance) == "b")
+      counter++;
+  }
+  // check `<' comparison with double
+  REQUIRE(counter == 100000);
 }

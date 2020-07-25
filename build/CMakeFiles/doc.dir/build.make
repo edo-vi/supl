@@ -55,6 +55,7 @@ include CMakeFiles/doc.dir/progress.make
 
 CMakeFiles/doc:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/edoardo/cl/supl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generate documentation"
+	rm -rf ../doc/html
 	../doc/doxygen ../doxyconfig
 	mv html ../doc
 

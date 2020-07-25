@@ -2,3 +2,5 @@
 cmake-build-*
 .DS_*
 doxygen_build
+build
+doc

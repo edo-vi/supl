@@ -5,5 +5,9 @@ CMakeFiles/tests.dir/tests/tests.cpp.o
  ../deps/rapidcsv.h
  ../include/Input/Instance.h
  ../include/Input/Sample.h
+ ../include/Learner/Classification/KNearestNeighbors/KNearestNeighbors.h
+ ../include/Learner/Learner.h
+ ../include/Learner/Parameter.h
+ ../include/Loss/LossFunction.h
  /home/edoardo/cl/supl/deps/catch.hpp
  /home/edoardo/cl/supl/tests/tests.cpp
