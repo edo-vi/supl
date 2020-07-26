@@ -19,7 +19,7 @@ Simply build the project with Cmake and then run in *build*
 make test
 ```
 
-##How to generate the documentation
+## How to generate the documentation
 After having built the project with cmake in *build* in the same folder just execute
 ```
 make doc
