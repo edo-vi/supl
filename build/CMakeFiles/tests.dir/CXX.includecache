@@ -59,6 +59,8 @@ random
 -
 vector
 -
+type_traits
+-
 
 ../include/Learner/Classification/KNearestNeighbors/KNearestNeighbors.h
 Input/Instance.h
@@ -703,4 +705,6 @@ Input/Sample.h
 /Users/edo/cl/suplea/tests/Input/Sample.h
 Learner/Classification/KNearestNeighbors/KNearestNeighbors.h
 /Users/edo/cl/suplea/tests/Learner/Classification/KNearestNeighbors/KNearestNeighbors.h
+Loss/LossFunction.h
+/Users/edo/cl/suplea/tests/Loss/LossFunction.h
 

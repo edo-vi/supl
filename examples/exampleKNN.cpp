@@ -10,6 +10,8 @@
 int main() {
     using namespace std;
 
+    using validator = crossvalidation::CrossValidation<4>;
+
     //iris
     std::string filename = "../data/iris/iris.csv";
     sample::Sample<double, string> sa = sample::sampleFromCsv<double, string>(filename);
@@ -18,7 +20,7 @@ int main() {
     uint array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19};
     parameter::ParameterSet<uint> pset{array, 10};
     auto le = knearest::KNearestNeighbors<double, string>();
-    Parameter<uint> s = crossvalidation::crossValidate<double, string, uint, 4>(le, pset, sets.training);
+    Parameter<uint> s = validator::crossValidate<double, string, uint>(le, pset, sets.training);
 
     cout << "------------------ IRIS -----------------\nParameter chosen: " + to_string(s.value()) + "\n\n";
     le = knearest::KNearestNeighbors<double, string>(s.value());
@@ -32,7 +34,7 @@ int main() {
     sample::ValidationSample<double, int> sets2 = sa2.split(30);
     pset = ParameterSet<uint>(array, 10);
     auto le2 = knearest::KNearestNeighbors<double, int>();
-    s = crossvalidation::crossValidate<double, int, uint, 4>(le2, pset, sets2.training);
+    s = validator::crossValidate<double, int, uint>(le2, pset, sets2.training);
 
     cout << "---------- WINE ----------\nParameter chosen: " + to_string(s.value()) + "\n\n";
     le2 = knearest::KNearestNeighbors<double, int>(s.value());
@@ -45,7 +47,7 @@ int main() {
     sets = sa.split(30);
     pset = ParameterSet<uint>(array, 10);
     le = knearest::KNearestNeighbors<double, string>();
-    s = crossvalidation::crossValidate<double, string, uint, 4>(le, pset, sets.training);
+    s = validator::crossValidate<double, string, uint>(le, pset, sets.training);
 
     cout << "---------- ECOLI ----------\nParameter chosen: " + to_string(s.value()) + "\n\n";
     le = knearest::KNearestNeighbors<double, string>(s.value());

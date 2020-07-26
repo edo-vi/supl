@@ -67,6 +67,8 @@ random
 -
 vector
 -
+type_traits
+-
 
 ../include/Learner/Classification/KNearestNeighbors/KNearestNeighbors.h
 Input/Instance.h
