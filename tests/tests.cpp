@@ -41,3 +41,7 @@ TEST_CASE("Crossvalidation is correct", "[Crossvalidation]") {
 TEST_CASE("Correct creation of training and test sample", "[ValidationSample]") {
 
 }
+
+TEST_CASE("The loss functions are correct", "[LossFunction]") {
+
+}
