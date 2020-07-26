@@ -9,9 +9,9 @@ Algorithms currently implemented: *K-Nearest Neighbors*.
 ```
 mkdir build; cd $_; cmake ..; make; ./exampleKNN
 ```
-This will build the library, the tests and the example program and will run this last one,
-K-NN algorithm on three different common datasets: *Iris*, *Wine*, and *Ecoli*,
-for the purpose of multiclass classification.
+This will build the library, the tests and the example program and will run this last one, that is, it will run the
+K-NN algorithm on three different common datasets: *Iris*, *Wine*, and *Ecoli*, for the purpose of multiclass
+classification, printing the testing errors.
 
 ## How to run the tests
 Simply build the project with Cmake and then run in *build*
