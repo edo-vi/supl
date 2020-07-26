@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named exampleKNN
+
+# Build rule for target.
+exampleKNN: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 exampleKNN
+.PHONY : exampleKNN
+
+# fast build rule for target.
+exampleKNN/fast:
+	$(MAKE) -f CMakeFiles/exampleKNN.dir/build.make CMakeFiles/exampleKNN.dir/build
+.PHONY : exampleKNN/fast
+
+#=============================================================================
 # Target rules for targets named supl
 
 # Build rule for target.
@@ -137,19 +150,6 @@ tests/fast:
 .PHONY : tests/fast
 
 #=============================================================================
-# Target rules for targets named exampleKNN
-
-# Build rule for target.
-exampleKNN: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 exampleKNN
-.PHONY : exampleKNN
-
-# fast build rule for target.
-exampleKNN/fast:
-	$(MAKE) -f CMakeFiles/exampleKNN.dir/build.make CMakeFiles/exampleKNN.dir/build
-.PHONY : exampleKNN/fast
-
-#=============================================================================
 # Target rules for targets named doc
 
 # Build rule for target.
@@ -161,6 +161,19 @@ doc: cmake_check_build_system
 doc/fast:
 	$(MAKE) -f CMakeFiles/doc.dir/build.make CMakeFiles/doc.dir/build
 .PHONY : doc/fast
+
+#=============================================================================
+# Target rules for targets named test
+
+# Build rule for target.
+test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test
+.PHONY : test
+
+# fast build rule for target.
+test/fast:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
 
 examples/exampleKNN.o: examples/exampleKNN.cpp.o
 
@@ -250,11 +263,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... exampleKNN"
+	@echo "... edit_cache"
 	@echo "... supl"
 	@echo "... tests"
-	@echo "... edit_cache"
-	@echo "... exampleKNN"
 	@echo "... doc"
+	@echo "... test"
 	@echo "... examples/exampleKNN.o"
 	@echo "... examples/exampleKNN.i"
 	@echo "... examples/exampleKNN.s"

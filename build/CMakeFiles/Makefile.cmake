@@ -49,8 +49,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/exampleKNN.dir/DependInfo.cmake"
   "CMakeFiles/supl.dir/DependInfo.cmake"
   "CMakeFiles/tests.dir/DependInfo.cmake"
-  "CMakeFiles/exampleKNN.dir/DependInfo.cmake"
   "CMakeFiles/doc.dir/DependInfo.cmake"
+  "CMakeFiles/test.dir/DependInfo.cmake"
   )

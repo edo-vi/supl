@@ -33,3 +33,11 @@ TEST_CASE("KNN works correctly", "[KNN]") {
   // check `<' comparison with double
   REQUIRE(counter == 100000);
 }
+
+TEST_CASE("Crossvalidation is correct", "[Crossvalidation]") {
+
+}
+
+TEST_CASE("Correct creation of training and test sample", "[ValidationSample]") {
+
+}

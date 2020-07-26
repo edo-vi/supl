@@ -1,6 +1,7 @@
 /Users/edo/cl/suplea/build/CMakeFiles/rebuild_cache.dir
+/Users/edo/cl/suplea/build/CMakeFiles/exampleKNN.dir
+/Users/edo/cl/suplea/build/CMakeFiles/edit_cache.dir
 /Users/edo/cl/suplea/build/CMakeFiles/supl.dir
 /Users/edo/cl/suplea/build/CMakeFiles/tests.dir
-/Users/edo/cl/suplea/build/CMakeFiles/edit_cache.dir
-/Users/edo/cl/suplea/build/CMakeFiles/exampleKNN.dir
 /Users/edo/cl/suplea/build/CMakeFiles/doc.dir
+/Users/edo/cl/suplea/build/CMakeFiles/test.dir

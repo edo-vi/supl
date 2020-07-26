@@ -27,6 +27,10 @@ add_custom_target(doc
     COMMAND mv html ../doc
     COMMENT "Generate documentation")
 
+add_custom_target(test
+    COMMAND make tests
+    COMMAND ./tests
+    COMMENT "Running the tests")
 
 add_executable(exampleKNN examples/exampleKNN.cpp include/supl.h)
 
