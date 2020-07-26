@@ -19,6 +19,11 @@ TEST_CASE("Samples are correctly parsed", "[sampleFromCSV]") {
   //check the fact that a double can be parsed as a string and that a parsed string label doesn't contain
   //leading whitespaces
   REQUIRE(sample::sampleFromCsv<double, string>("../tests/integerlabel.csv")[0].label() == "0.9982");
+
+  auto stringsample = sample::sampleFromCsv<string, double>("../tests/strings.csv");
+  REQUIRE(stringsample[1].label() == 6.8);
+  REQUIRE(stringsample[1].factor(1) == "3.1415*100");
+
   REQUIRE_THROWS(
       sample::sampleFromCsv<double, string>("../tests/missingvalue.csv"));
   REQUIRE_THROWS(

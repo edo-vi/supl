@@ -125,11 +125,23 @@ Sample<T, Q> sampleFromCsv(const std::string &filename) {
       data.push_back(doc.GetCell<T>(j, i));
     }
 
-    Q label = doc.GetCell<Q>(j, i);
+    //remove leading whitespaces in the instances if T is a string
+    if constexpr (std::is_same<T, std::string>::value) {
+        for (uint k = 0; k < data.size(); k++) {
+            const auto b = data[k].find_first_not_of(" \t");
+            if (b == std::string::npos) throw; // empty or all whitespaces
 
-    //remove leading whitespaces if it is a string
+            const auto e = data[k].size() - 1;
+            const auto r = e - b + 1;
+
+            data[k] = data[k].substr(b, r);
+        }
+    }
+
+    Q label = doc.GetCell<Q>(j, i);
+    //remove leading whitespaces in the label if it is a string
     if constexpr (std::is_same<Q, std::string>::value) {
-        const auto b = label.find_first_not_of(" ");
+        const auto b = label.find_first_not_of(" \t");
         if (b == std::string::npos) throw; // empty or all whitespaces
 
         const auto e = label.size() - 1;
