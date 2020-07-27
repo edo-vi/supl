@@ -7,11 +7,12 @@
 #include "../../deps/rapidcsv.h" //Document, labelParams, GetRowCount, GetColumnCount, GetCell
 #include "Instance.h" //LabeledInstance
 
-#include <algorithm> //shuffle
-#include <cassert>   //assert
-#include <cstdint>   //int64_t, uint64_t
-#include <random>    //random_device, mt19337
-#include <vector>    //vector
+#include <algorithm>    //shuffle
+#include <cassert>      //assert
+#include <cstdint>      //int64_t, uint64_t
+#include <random>       //random_device, mt19337
+#include <vector>       //vector
+#include <type_traits>  //is_same
 
 ///@brief Namespace containing all the definitions and implementations of
 /// classes representing samples of labeled datapoints (Sample), samples with
@@ -124,8 +125,30 @@ Sample<T, Q> sampleFromCsv(const std::string &filename) {
       data.push_back(doc.GetCell<T>(j, i));
     }
 
-    Q label = doc.GetCell<Q>(j, i);
+    //remove leading whitespaces in the instances if T is a string
+    if constexpr (std::is_same<T, std::string>::value) {
+        for (uint k = 0; k < data.size(); k++) {
+            const auto b = data[k].find_first_not_of(" \t");
+            if (b == std::string::npos) throw; // empty or all whitespaces
 
+            const auto e = data[k].size() - 1;
+            const auto r = e - b + 1;
+
+            data[k] = data[k].substr(b, r);
+        }
+    }
+
+    Q label = doc.GetCell<Q>(j, i);
+    //remove leading whitespaces in the label if it is a string
+    if constexpr (std::is_same<Q, std::string>::value) {
+        const auto b = label.find_first_not_of(" \t");
+        if (b == std::string::npos) throw; // empty or all whitespaces
+
+        const auto e = label.size() - 1;
+        const auto r = e - b + 1;
+
+        label = label.substr(b, r);
+    }
     inputs.push_back(LabeledInstance<T, Q>(data, label));
   }
   return Sample<T, Q>(inputs);
@@ -149,7 +172,7 @@ public:
 
 protected:
   Sample<T, Q> _sample;
-  int64_t _num = _sample.size() / k;
+  uint64_t _num = _sample.size() / k;
 };
 ///@param T The type of the elements making up the instances of the sample
 ///@param Q The type of the labels of the instances
