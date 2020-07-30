@@ -27,7 +27,7 @@ add_custom_target(doc
     COMMAND mv html ../doc
     COMMENT "Generate documentation")
 
-add_custom_target(test
+add_custom_target(testing
     COMMAND make tests
     COMMAND ./tests
     COMMENT "Running the tests")

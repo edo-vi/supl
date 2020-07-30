@@ -1,2 +1,2 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libsupl.a  CMakeFiles/supl.dir/src/supl.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libsupl.a
+/usr/bin/ar qc libsupl.a  CMakeFiles/supl.dir/src/supl.cpp.o
+/usr/bin/ranlib libsupl.a

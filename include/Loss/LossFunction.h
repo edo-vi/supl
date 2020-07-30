@@ -10,7 +10,7 @@
 #include <type_traits> //is_arithmetic
 
 ///@brief Namespace containing all the definitions and implementations of loss
-///functions to be used in the training/testing phases
+/// functions to be used in the training/testing phases
 namespace loss {
 using namespace input;
 ///@param T The type of the instances
@@ -33,7 +33,7 @@ public:
   ///@param y The label of the instance
   ///@param hx The prediction of a learner on the instance x
   ///@return A double representing the error made by the learner, predicting hx,
-  ///on x which has label y
+  /// on x which has label y
   [[nodiscard]] virtual double loss(const Q &y, const Q &hx) = 0;
 
   /*
@@ -49,10 +49,10 @@ public:
   */
 
   ///@param xy A LabeledInstance representing an instance with its `correct'
-  ///label
+  /// label
   ///@param hx The prediction of a learner on the instance x
   ///@return A double representing the error made by the learner, predicting hx,
-  ///on xy which is `correctly' labeled
+  /// on xy which is `correctly' labeled
   [[nodiscard]] virtual double loss(const LabeledInstance<T, Q> &xy,
                                     const Q &hx) {
     return loss(xy.label(), hx);
@@ -64,7 +64,7 @@ template <typename T, typename Q> LossFunction<T, Q>::~LossFunction() = default;
 ///@param T The type of the instances
 ///@param Q The type of the labels of the instances
 ///@brief The 0-1 loss, a concrete implementation of the abstract Loss function
-///interface
+/// interface
 template <typename T, typename Q>
 class ZeroOneLoss : public LossFunction<T, Q> {
 public:
@@ -78,7 +78,7 @@ public:
 ///@param T The type of the instances
 ///@param Q The type of the labels of the instances
 ///@brief The squared loss, a concrete implementation of the abstract Loss
-///function interface
+/// function interface
 template <typename T, typename Q>
 class SquaredLoss : public LossFunction<T, Q> {
 public:
