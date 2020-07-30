@@ -27,12 +27,20 @@ add_custom_target(doc
     COMMAND mv html ../doc
     COMMENT "Generate documentation")
 
-add_custom_target(testing
-    COMMAND make tests
-    COMMAND ./tests
-    COMMENT "Running the tests")
-
 add_executable(exampleKNN examples/exampleKNN.cpp include/supl.h)
 
 add_executable(tests tests/tests.cpp deps/catch.hpp include/supl.h)
 
+enable_testing()
+
+add_test(NAME parse
+        COMMAND tests [parseFromCSV])
+
+add_test(NAME KNN
+        COMMAND tests [KNN])
+
+add_test(NAME slicing
+        COMMAND tests [Slicing])
+
+add_test(NAME loss
+        COMMAND tests [LossFunction])

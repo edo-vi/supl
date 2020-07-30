@@ -65,9 +65,9 @@ cstdint
 -
 random
 -
-vector
--
 type_traits
+-
+vector
 -
 
 ../include/Learner/Classification/KNearestNeighbors/KNearestNeighbors.h

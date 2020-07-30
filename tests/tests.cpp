@@ -11,11 +11,11 @@
 #include "Loss/LossFunction.h"
 #include <Cross-validation/CrossValidation.h>
 
-using namespace std; // for ease of use
-
-auto s = sample::sampleFromCsv<double, string>("../tests/neardouble.csv");
+auto s = sample::sampleFromCsv<double, std::string>("../tests/neardouble.csv");
 
 TEST_CASE("Samples are correctly parsed", "[sampleFromCSV]") {
+  using namespace std;
+
   REQUIRE(s.size() == 2);
   REQUIRE(s[0].instance().factor(1) == -2);
   // check the fact that a double can be parsed as a string and that a parsed
@@ -37,6 +37,8 @@ TEST_CASE("Samples are correctly parsed", "[sampleFromCSV]") {
 }
 
 TEST_CASE("KNN works correctly", "[KNN]") {
+  using namespace std;
+
   auto l = knearest::KNearestNeighbors<double, string>(1);
   l.train(s);
 
@@ -51,6 +53,8 @@ TEST_CASE("KNN works correctly", "[KNN]") {
 }
 
 TEST_CASE("Correct slicing of samples", "[Slicing]") {
+  using namespace std;
+
   auto sk = sample::sampleFromCsv<int, string>("../tests/crosstest.csv");
   auto sliced = sample::SlicedSample<int, string, 3>(sk);
   auto setted = sliced.set(1);
@@ -64,6 +68,8 @@ TEST_CASE("Correct slicing of samples", "[Slicing]") {
 }
 
 TEST_CASE("The loss functions are correct", "[LossFunction]") {
+  using namespace std;
+
   auto zeroone = loss::ZeroOneLoss<double, string>();
   REQUIRE(zeroone.loss("a", s[0].label()) == 0);
   REQUIRE(zeroone.loss("a", s[1].label()) == 1);
