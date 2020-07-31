@@ -44,3 +44,10 @@ add_test(NAME slicing
 
 add_test(NAME loss
         COMMAND tests [LossFunction])
+
+find_program(CHECKMEM valgrind)
+
+
+add_test(NAME valgrind
+        COMMAND valgrind --tool=memcheck --xml=yes --xml-file=/tmp/valgrind
+            --gen-suppressions=all --leak-check=full --leak-resolution=med --track-origins=yes --vgdb=no ./exampleKNN)
