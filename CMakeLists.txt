@@ -22,14 +22,24 @@ set_target_properties(supl PROPERTIES LINKER_LANGUAGE CXX)
 add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 
 add_custom_target(doc
-    COMMAND rm -rf ../doc/html
-    COMMAND ../doc/doxygen ../doxyconfig
-    COMMAND mv html ../doc
-    COMMENT "Generate documentation")
+        COMMAND rm -rf ../doc/html
+        COMMAND ../doxygen ../doxyconfig
+        COMMAND mv html ../doc
+        COMMENT "Generate documentation")
 
+find_program(NAME doxygen)
+
+if (DOXYGEN_FOUND)
+    add_custom_target(doc
+            COMMAND rm -rf ../doc/html
+            COMMAND doxygen ../doxyconfig
+            COMMAND mv html ../doc
+            COMMENT "Generate documentation")
+endif()
 add_executable(exampleKNN examples/exampleKNN.cpp include/supl.h)
 
 add_executable(tests tests/tests.cpp deps/catch.hpp include/supl.h)
+
 
 enable_testing()
 
