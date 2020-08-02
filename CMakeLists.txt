@@ -46,4 +46,4 @@ add_test(NAME loss
         COMMAND tests [LossFunction])
 
 add_test(NAME valgrind
-        COMMAND valgrind ./exampleKNN)
+        COMMAND valgrind --tool=memcheck --xml=yes --xml-file=/tmp/valgrind --gen-suppressions=all --leak-check=full --leak-resolution=med --track-origins=yes --vgdb=no ./exampleKNN)

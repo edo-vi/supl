@@ -96,15 +96,17 @@ public:
     Q lab{arr[0]};
     float max{-INFINITY};
     int count{1};
-    for (uint64_t i = 0; i < arr.size(); i++) {
-      if (arr[i] == arr[i + 1]) {
-        count++;
-      } else {
-        if (count > max) {
-          lab = arr[i];
-          max = count;
+    if (arr.size() > 1) {
+      for (uint64_t i = 0; i < arr.size()-1; i++) {
+        if (arr[i] == arr[i + 1]) {
+          count++;
+        } else {
+          if (count > max) {
+            lab = arr[i];
+            max = count;
+          }
+          count = 1;
         }
-        count = 1;
       }
     }
     return lab;
