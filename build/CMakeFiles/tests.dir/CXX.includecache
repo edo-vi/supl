@@ -124,7 +124,7 @@ cmath
 type_traits
 -
 
-/home/edoardo/cl/supl/deps/catch.hpp
+/Users/edo/cl/suplea/deps/catch.hpp
 TargetConditionals.h
 -
 ciso646
@@ -500,7 +500,7 @@ string
 memory
 -
 Foundation/Foundation.h
-/home/edoardo/cl/supl/deps/Foundation/Foundation.h
+/Users/edo/cl/suplea/deps/Foundation/Foundation.h
 limits
 -
 set
@@ -704,17 +704,17 @@ algorithm
 cassert
 -
 
-/home/edoardo/cl/supl/tests/tests.cpp
+/Users/edo/cl/suplea/tests/tests.cpp
 ../deps/catch.hpp
-/home/edoardo/cl/supl/deps/catch.hpp
+/Users/edo/cl/suplea/deps/catch.hpp
 Input/Instance.h
-/home/edoardo/cl/supl/tests/Input/Instance.h
+/Users/edo/cl/suplea/tests/Input/Instance.h
 Input/Sample.h
-/home/edoardo/cl/supl/tests/Input/Sample.h
+/Users/edo/cl/suplea/tests/Input/Sample.h
 Learner/Classification/KNearestNeighbors/KNearestNeighbors.h
-/home/edoardo/cl/supl/tests/Learner/Classification/KNearestNeighbors/KNearestNeighbors.h
+/Users/edo/cl/suplea/tests/Learner/Classification/KNearestNeighbors/KNearestNeighbors.h
 Loss/LossFunction.h
-/home/edoardo/cl/supl/tests/Loss/LossFunction.h
+/Users/edo/cl/suplea/tests/Loss/LossFunction.h
 Cross-validation/CrossValidation.h
 -
 

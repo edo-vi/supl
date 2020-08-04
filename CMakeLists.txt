@@ -23,19 +23,16 @@ add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 
 add_custom_target(doc
         COMMAND rm -rf ../doc/html
-        COMMAND ../doxygen ../doxyconfig
+        COMMAND doxygen ../doxyconfig
         COMMAND mv html ../doc
         COMMENT "Generate documentation")
 
-find_program(NAME doxygen)
+add_custom_target(install
+        COMMAND make exampleKNN
+        COMMAND mv ./exampleKNN ../bin
+        COMMENT "Move the executable to bin")
 
-if (DOXYGEN_FOUND)
-    add_custom_target(doc
-            COMMAND rm -rf ../doc/html
-            COMMAND doxygen ../doxyconfig
-            COMMAND mv html ../doc
-            COMMENT "Generate documentation")
-endif()
+
 add_executable(exampleKNN examples/exampleKNN.cpp include/supl.h)
 
 add_executable(tests tests/tests.cpp deps/catch.hpp include/supl.h)
@@ -56,4 +53,4 @@ add_test(NAME loss
         COMMAND tests [LossFunction])
 
 add_test(NAME valgrind
-        COMMAND valgrind --tool=memcheck --xml=yes --xml-file=/tmp/valgrind --gen-suppressions=all --leak-check=full --leak-resolution=med --track-origins=yes --vgdb=no ./exampleKNN)
+        COMMAND valgrind ./exampleKNN)
