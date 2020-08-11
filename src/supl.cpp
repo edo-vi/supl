@@ -1,4 +1,4 @@
-///@author ***REMOVED***
+///@author Edoardo Zorzi
 ///@date July 2020
 ///@version 0.1
 ///@file supl.h

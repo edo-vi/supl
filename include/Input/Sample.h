@@ -1,4 +1,4 @@
-///@author ***REMOVED***
+///@author EZ
 ///@date July 2020
 ///@version 0.1
 ///@file Sample.h

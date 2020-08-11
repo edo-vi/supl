@@ -1,4 +1,4 @@
-///@author ***REMOVED***
+///@author EZ
 ///@date August 2020
 ///@version 0.1
 ///@file CrossValidation.h Definition of the function crossValidate
