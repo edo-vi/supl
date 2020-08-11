@@ -1,7 +1,8 @@
 ///@author ***REMOVED***
-///@date June 2020
+///@date August 2020
 ///@version 0.1
 ///@file Instance.h
+///@brief Declaration of the Instance and LabeledInstance classes
 #pragma once
 
 #include <cassert>     //assert
@@ -33,24 +34,16 @@ public:
   /// point vector
   ///@return A value of type T
   ///@brief Returns the index-th factor of the instance vector
-  T factor(int64_t index) const { return _arr[index]; }
+  T factor(int64_t index) const;
   ///@return A 64-bit integer
   ///@brief Returns the dimension of the instance vector
-  int64_t dimensions() const { return _arr.size(); }
+  int64_t dimensions() const;
   ///@param other An instance of the same type (which must be arithmetic)
   ///@return A double representing the distance between this Instance and the
   /// other Instance
   ///@brief Returns the euclidean distance (2-norm of the difference) between
   /// this Instance and the passed Instance. Both must be of arithmetic type
-  double euclidean(const Instance<T> &other) {
-    static_assert(std::is_arithmetic<T>());
-    assert(other.dimensions() == dimensions());
-    double eu{0};
-    for (int i{}; i < other.dimensions(); i++) {
-      eu += pow(other.factor(i) - factor(i), 2);
-    }
-    return sqrt(eu);
-  }
+  double euclidean(const Instance<T> &other);
 
 protected:
   std::vector<T> _arr;
@@ -76,13 +69,15 @@ public:
       : Instance<T>(input, size), _label(label) {}
   ///@return A value of type Q
   ///@brief Returns the label of the instance
-  Q label() const { return _label; }
+  Q label() const;
   ///@return An instance of type T
   ///@brief Returns the underline Instance
-  Instance<T> instance() const { return Instance<T>(this->_arr); }
+  Instance<T> instance() const;
 
 protected:
   Q _label;
 };
 
 } // namespace input
+
+#include "Instance.i.h"

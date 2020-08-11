@@ -15,9 +15,14 @@ add_library(supl
         deps/rapidcsv.h
         include/Learner/Learner.h
         include/Loss/LossFunction.h
-        include/Learner/Classification/KNearestNeighbors/KNearestNeighbors.h)
+        include/Learner/Classification/KNearestNeighbors/KNearestNeighbors.h include/Cross-validation/CrossValidation.i.h include/Input/Instance.i.h include/Input/Sample.i.h include/Learner/Learner.i.h include/Learner/Parameter.i.h include/Learner/Classification/KNearestNeighbors/KNearestNeighbors.i.h include/Loss/LossFunction.i.h)
 
 set_target_properties(supl PROPERTIES LINKER_LANGUAGE CXX)
+
+
+add_executable(exampleKNN examples/exampleKNN.cpp include/supl.h)
+
+add_executable(tests tests/tests.cpp deps/catch.hpp include/supl.h)
 
 add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 
@@ -27,15 +32,7 @@ add_custom_target(doc
         COMMAND mv html ../doc
         COMMENT "Generate documentation")
 
-add_custom_target(install
-        COMMAND make exampleKNN
-        COMMAND mv ./exampleKNN ../bin
-        COMMENT "Move the executable to bin")
-
-
-add_executable(exampleKNN examples/exampleKNN.cpp include/supl.h)
-
-add_executable(tests tests/tests.cpp deps/catch.hpp include/supl.h)
+install(TARGETS exampleKNN DESTINATION ${PROJECT_SOURCE_DIR}/bin)
 
 
 enable_testing()

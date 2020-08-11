@@ -1,5 +1,5 @@
 ///@author ***REMOVED***
-///@date July 2020
+///@date August 2020
 ///@version 0.1
 ///@file LossFunction.h
 #pragma once
@@ -54,12 +54,8 @@ public:
   ///@return A double representing the error made by the learner, predicting hx,
   /// on xy which is `correctly' labeled
   [[nodiscard]] virtual double loss(const LabeledInstance<T, Q> &xy,
-                                    const Q &hx) {
-    return loss(xy.label(), hx);
-  };
+                                    const Q &hx);
 };
-
-template <typename T, typename Q> LossFunction<T, Q>::~LossFunction() = default;
 
 ///@param T The type of the instances
 ///@param Q The type of the labels of the instances
@@ -68,11 +64,11 @@ template <typename T, typename Q> LossFunction<T, Q>::~LossFunction() = default;
 template <typename T, typename Q>
 class ZeroOneLoss : public LossFunction<T, Q> {
 public:
+  ~ZeroOneLoss() override = default;
   ///@param y The label of the instance
   ///@param hx The prediction of a learner on the instance x
   ///@return Zero if the label y is the same as the prediction hx, one otherwise
-  double loss(const Q &y, const Q &hx) override { return (y == hx) ? 0 : 1; };
-  ~ZeroOneLoss() override = default;
+  double loss(const Q &y, const Q &hx) override;
 };
 
 ///@param T The type of the instances
@@ -85,10 +81,9 @@ public:
   ///@param y The label of the instance
   ///@param hx The prediction of a learner on the instance x
   ///@return The squared difference between the label y and the prediction hx
-  double loss(const Q &y, const Q &hx) override {
-    static_assert(std::is_arithmetic<Q>());
-    return pow((y - hx), 2);
-  };
+  double loss(const Q &y, const Q &hx) override;
   ~SquaredLoss() override = default;
 };
 } // namespace loss
+
+#include "LossFunction.i.h"

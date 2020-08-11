@@ -2,6 +2,7 @@
 ///@date July 2020
 ///@version 0.1
 ///@file Sample.h
+///@brief Declaration of Sample, SlicedSample and SlicedSettedSample
 #pragma once
 
 #include "../../deps/rapidcsv.h" //Document, labelParams, GetRowCount, GetColumnCount, GetCell
@@ -38,7 +39,7 @@ public:
   ///@return The size of the sample, i.e. the number of labeled instances
   /// wrapped by the sample instance
   ///@brief Returns the size of the sample
-  uint64_t size() const { return uint64_t{_arr.size()}; };
+  uint64_t size() const;
   /*
   LabeledInstance<T, Q> randomPoint() {
       std::uniform_int_distribution<unsigned long> distr(0, _arr.size());
@@ -63,34 +64,21 @@ public:
   /// passed actual parameter
   ///@brief Get the LabeledInstance of the sample with index equal to the actual
   /// parameter
-  LabeledInstance<T, Q> operator[](int64_t index) const { return _arr[index]; }
+  LabeledInstance<T, Q> operator[](int64_t index) const;
   ///@return A LabeledInstance
   ///@brief Returns the first LabeledInstance in the sample
-  LabeledInstance<T, Q> begin() { return _arr.begin(); }
+  LabeledInstance<T, Q> begin() const;
   ///@return A LabeledInstance
   ///@brief Returns the last LabeledInstance in the sample
-  LabeledInstance<T, Q> end() { return _arr.end(); }
+  LabeledInstance<T, Q> end() const;
   ///@param k A 64-bit integer indicating the size of the test sample
   ///@return A validation sample, i.e. an union of two samples, the training
   /// sample and the test sample
   ///@brief Returns a validation sample with test sample of size k and training
   /// sample of size size()-k
-  ValidationSample<T, Q> split(uint64_t k) {
-    assert(k < size());
-
-    auto vs = ValidationSample<T, Q>();
-    vs.test = Sample<T, Q>(
-        std::vector<LabeledInstance<T, Q>>(_arr.begin(), _arr.begin() + k));
-    vs.training = Sample<T, Q>(std::vector<LabeledInstance<T, Q>>(
-        _arr.begin() + k, _arr.begin() + _arr.size() - 1));
-    return vs;
-  };
+  ValidationSample<T, Q> split(uint64_t k);
   ///@brief Randomly shuffle the sample
-  void shuffle() {
-    std::random_device rdev{};
-    std::mt19937 gen{rdev()};
-    std::shuffle(_arr.begin(), _arr.end(), gen);
-  }
+  void shuffle();
 
 protected:
   std::vector<LabeledInstance<T, Q>> _arr;
@@ -108,53 +96,7 @@ protected:
 /// row header, values must be separated by a comma and the label must be the
 /// last value of each row
 template <typename T, typename Q>
-Sample<T, Q> sampleFromCsv(const std::string &filename) {
-
-  std::vector<LabeledInstance<T, Q>> inputs{};
-
-  rapidcsv::Document doc(filename, rapidcsv::LabelParams(-1, -1));
-
-  auto rows = doc.GetRowCount();
-  auto columns = doc.GetColumnCount();
-
-  for (uint64_t i = 0; i < rows; i++) {
-    std::vector<T> data{};
-
-    uint64_t j = 0;
-    for (; j < columns - 1; j++) {
-      data.push_back(doc.GetCell<T>(j, i));
-    }
-
-    // remove leading whitespaces in the instances if T is a string
-    if constexpr (std::is_same<T, std::string>::value) {
-      for (uint k = 0; k < data.size(); k++) {
-        const auto b = data[k].find_first_not_of(" \t");
-        if (b == std::string::npos)
-          throw; // empty or all whitespaces
-
-        const auto e = data[k].size() - 1;
-        const auto r = e - b + 1;
-
-        data[k] = data[k].substr(b, r);
-      }
-    }
-
-    Q label = doc.GetCell<Q>(j, i);
-    // remove leading whitespaces in the label if it is a string
-    if constexpr (std::is_same<Q, std::string>::value) {
-      const auto b = label.find_first_not_of(" \t");
-      if (b == std::string::npos)
-        throw; // empty or all whitespaces
-
-      const auto e = label.size() - 1;
-      const auto r = e - b + 1;
-
-      label = label.substr(b, r);
-    }
-    inputs.push_back(LabeledInstance<T, Q>(data, label));
-  }
-  return Sample<T, Q>(inputs);
-}
+Sample<T, Q> sampleFromCsv(const std::string &filename);
 
 template <typename T, typename Q, int k> class SlicedSettedSample;
 ///@param T The type of the elements making up the instances of the sample
@@ -168,9 +110,7 @@ public:
   explicit SlicedSample(const Sample<T, Q> &sample) : _sample(sample){};
   ///@param s An integer indicating the index of the `set' subset
   ///@return A SlicedSettedSample whose `set' subset is the s-th one
-  SlicedSettedSample<T, Q, k> set(int s) {
-    return SlicedSettedSample<T, Q, k>(_sample, s);
-  }
+  SlicedSettedSample<T, Q, k> set(int s);
 
 protected:
   Sample<T, Q> _sample;
@@ -196,27 +136,10 @@ public:
   ///@return A sample representing the training set
   ///@brief Returns the training set which is constructed by the union of all
   /// disjoint subsets that are not the `set' one
-  sample::Sample<T, Q> trainingSet() {
-    auto training = std::vector<input::LabeledInstance<T, Q>>();
-    for (uint64_t i = 0; i < this->_sample.size(); i++) {
-      if (i < _startidx || i > _endidx) {
-        training.push_back(this->_sample[i]);
-      };
-    }
-    return Sample<T, Q>(training);
-  };
+  sample::Sample<T, Q> trainingSet();
   ///@return A sample representing the validation set
   ///@brief Returns the validation set which is constructed as the `set' sample
-  sample::Sample<T, Q> validationSet() {
-    auto validation = std::vector<input::LabeledInstance<T, Q>>();
-
-    for (uint64_t i = 0; i < this->_sample.size(); i++) {
-      if (i >= _startidx && i <= _endidx) {
-        validation.push_back(this->_sample[i]);
-      }
-    }
-    return Sample<T, Q>(validation);
-  };
+  sample::Sample<T, Q> validationSet();
 
 private:
   int _s{};
@@ -231,3 +154,5 @@ template <typename T, typename Q> struct ValidationSample {
   Sample<T, Q> test;
 };
 } // namespace sample
+
+#include "Sample.i.h"

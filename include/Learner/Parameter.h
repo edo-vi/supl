@@ -29,11 +29,9 @@ public:
   Parameter() = default;
   ///@param value The value of the parameter
   explicit Parameter(const T &value) : _value(value) {}
-  bool operator==(const Parameter<T> &other) const {
-    return _value == other._value;
-  }
+  bool operator==(const Parameter<T> &other) const;
   ///@return The value of the parameter
-  T value() const noexcept { return _value; }
+  T value() const noexcept;
 
 private:
   T _value;
@@ -70,10 +68,10 @@ public:
     }
   }
   ///@return The size of the set
-  int64_t size() const noexcept { return _set.size(); }
+  [[nodiscard]] int64_t size() const noexcept;
   ///@return An unordered set containing all the Parameters included in the set
   ///@brief Can be use to iterate over the Parameters `wrapped' by the set
-  std::unordered_set<Parameter<T>> values() const noexcept { return _set; }
+  std::unordered_set<Parameter<T>> values() const noexcept;
 
 private:
   std::unordered_set<Parameter<T>> _set{};
@@ -86,9 +84,7 @@ using namespace parameter;
 ///@param T The type of the value `wrapped' by the parameter
 ///@brief Implementation of the hash function for a Parameter of type T
 ///(necessary for having an unordered set of Parameters)
-template <typename T> struct hash<Parameter<T>> {
-  std::size_t operator()(Parameter<T> const &s) const noexcept {
-    return std::hash<T>()(s.value());
-  }
-};
+template <typename T> struct hash<Parameter<T>>;
 } // namespace std
+
+#include "Parameter.i.h"

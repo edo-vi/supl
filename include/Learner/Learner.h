@@ -1,5 +1,5 @@
 ///@author ***REMOVED***
-///@date July 2020
+///@date August 2020
 ///@version 0.1
 ///@file Learner.h
 #pragma once
@@ -44,15 +44,7 @@ public:
   ///@return A double representing the empirical risk on the sample
   ///@brief Test the learner on the passed sample and returns the empirical
   /// error
-  double test(const Sample<T, Q> &sample) const {
-    auto l = lossFunction();
-    double v{};
-    for (uint64_t i = 0; i < sample.size(); i++) {
-      auto samplepoint = sample[i];
-      v += l->loss(samplepoint.label(), predict(samplepoint));
-    }
-    return v / sample.size();
-  };
+  double test(const Sample<T, Q> &sample) const;
   ///@param sample A sample of LabeledInstances whose datapoints are of type T
   /// and their label of type Q
   ///@return A double representing the empirical risk on the sample
@@ -60,32 +52,7 @@ public:
   /// error; same as the other method but with support for verbose output
   /// messages, showing the learner's decisions on the input test sample and its
   /// errors
-  double test(const Sample<T, Q> &sample, bool verbose) const {
-    if (!verbose)
-      return test(sample);
-    auto l = lossFunction();
-    double v{};
-    std::cout << "label\tprediction\n";
-    for (uint64_t i = 0; i < sample.size(); i++) {
-      auto samplepoint = sample[i];
-      auto instance = samplepoint.instance();
-      auto label = samplepoint.label();
-      auto prediction = predict(samplepoint);
-      v += l->loss(label, prediction);
-      std::string final = "";
-      if constexpr (std::is_same<Q, std::string>::value) {
-        final += label + "\t" + prediction;
-      } else {
-        final += std::to_string(label) + "\t" + std::to_string(prediction);
-      }
-      if (label == prediction)
-        final += "\n";
-      else
-        final += " <- ERROR\n";
-      std::cout << final;
-    }
-    return v / sample.size();
-  };
+  double test(const Sample<T, Q> &sample, bool verbose) const;
   ///@return The parameter of the learner
   ///@brief Simply returns the parameter of the learner
   virtual Parameter<P> hyperparameter() const = 0;
@@ -100,3 +67,5 @@ template <typename T, typename Q, typename P>
 Learner<T, Q, P>::~Learner() = default;
 
 } // namespace learner
+
+#include "Learner.i.h"
